@@ -1,0 +1,371 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import "../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.css';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+
+/*@import "~sweetalert2/dist/sweetalert2.css";*/
+/*@import "../node_modules/sweetalert2/dist/sweetalert2.css";*/
+
+/* .swal2-modal {
+  height: 300px;
+  width: 500px;
+} */
+
+/* .swal2-popup {
+  display: none;
+  position: relative;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  width: 50em!important;
+  height: 30em!important;
+  max-width: 100%;
+  padding: 0em;
+  border: none;
+  border-radius: .3125em;
+  background: #fff;
+  font-family: inherit;
+  font-size: 1rem!important;
+}
+
+.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal {
+  margin: auto;
+}
+
+.swal2-content {
+  z-index: 1;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  color: #545454;
+  font-size: 2em!important;
+  font-weight: 400!important;
+  line-height: normal;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.swal2-actions {
+  display: flex;
+  z-index: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 1.25em auto 0;
+}
+
+.swal2-footer {
+  justify-content: center;
+  margin: 1.25em 0 0;
+  padding: 1em 0 0;
+  border-top: 1px solid #eee;
+  color: #545454;
+  font-size: 1em !important;
+}
+
+.swal2-timer-progress-bar-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: .25em !important;
+  overflow: hidden;
+  border-bottom-right-radius: .3125em;
+  border-bottom-left-radius: .3125em;
+}
+
+.swal2-styled {
+  margin: .4000em !important;
+  padding: .750em 2em!important;
+  box-shadow: none!important;
+  font-weight: 700!important;
+}
+
+.swal2-icon {
+  position: relative;
+  box-sizing: content-box;
+  justify-content: center;
+  width: 8em !important;
+  height: 8em !important;
+  margin: 1.25em auto 1.875em;
+  border: .50em solid transparent;
+  border-radius: 50%;
+  font-family: inherit;
+  line-height: 5em;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.swal2-title {
+  position: relative;
+  max-width: 100%;
+  margin: 0 0 .4em;
+  padding: 2!important;
+  color: #595959;
+  font-size: 2.875em!important;
+  font-weight: 600;
+  text-align: center;
+  text-transform: none;
+  word-wrap: break-word;
+}
+
+.swal2-styled.swal2-confirm {
+  border: 0;
+  border-radius: .25em;
+  background: initial;
+  background-color: #3085d6;
+  color: #fff;
+  font-size: 1.625em!important;
+}
+
+.swal2-styled.swal2-cancel {
+  border: 0;
+  border-radius: .25em;
+  background: initial;
+  background-color: #aaa;
+  color: #fff;
+  font-size: 1.625em !important;
+} */
+/* .swal-wide{
+  width:850px !important;
+} */
+.swal2-popup {
+  display: none;
+  position: relative;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  width: 40em !important;
+  max-width: 100%;
+  padding: 1.25em;
+  border: none;
+  border-radius: .3125em;
+  background: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  height: 25em !important;
+}
+
+
+/* .invalid-feedback {
+  display: none;
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 90%;
+  letter-spacing: 0.5px;
+  color: #dc3545;
+} */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+label {
+  font-weight: 500 !important;
+}
+
+th {
+  font-weight: 500 !important;
+}
+
+.box-header {
+  color: #444;
+  display: block;
+  padding: 30px 16px 3px 16px;
+  position: relative;
+}
+
+#filterDate2{
+margin-top: 10px;    
+}
+/* .bg-primary {
+  background-color: #C7E4EA;
+} */
+h1{
+  color:white;
+}
+.small-box h3 {
+  font-size: 38px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  white-space: nowrap;
+  padding: 0;
+}
+.bg-info {
+  color: #fff;
+  background-color: #3c8dbc;
+}
+/* .box {
+  position: relative;
+  border-radius: 3px;
+  margin-bottom: 50px;
+  padding-bottom: 10px;
+  box-shadow: 0 4px 4px rgb(0 0 0 / 14%);
+} */
+.box {
+  position: relative;
+  border-radius: 3px;
+  background: #ffffff;
+  border-top: none;
+  margin-bottom: 20px;
+  border-top: 3px solid #d2d6de;
+  width: 100%;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+  border-radius: 4px;
+}
+.small-box > .small-box-footer {
+  position: relative;
+  text-align: right;
+  padding: 7px 9px;
+  color: #fff;
+  color: rgba(255, 255, 255, 0.8);
+  display: block;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+  background-color: #337ab7
+}
+.mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+  background-color: #f39c12
+}
+.mat-button.mat-primary, .mat-icon-button.mat-primary, .mat-stroked-button.mat-primary {
+  color: #337ab7;
+}
+/* .mat-checkbox.mat-primary{
+  color: #337ab7;
+} */
+/* .mat-raised-button.mat-warn, .mat-fab.mat-warn, .mat-mini-fab.mat-warn {
+  background-color:#dd4b39;
+} */
+
+.box-header > .box-tools {
+  margin-top: -2px;
+  margin-bottom: -17px;
+}
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: auto
+}
+/* ***************************form ********************************/
+.form-control:focus {
+  /* border-color: #001F3F; */
+  box-shadow: none;
+}
+/* .btn-info{
+  background-color: #001F3F!important;
+  border:0px
+} */
+.btn-info:hover {
+  color: #fff;
+  background-color: #001F3F;
+  border-color: #001F3F;
+}
+
+
+.minibox {
+  position: relative;
+  border-radius: 3px;
+  margin-bottom: 50px;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 14%);
+}
+.mat-form-field {
+  width: 100%;
+}
+/* .mat-step-header .mat-step-icon {
+  background-color: #696969!important;
+} */
+/* .mat-step-header .mat-step-icon-selected {
+  background-color: #F06C16!important; */
+
+/* hr { */
+  /* margin-top: 0px!important; */
+  /* margin-bottom: 0px!important;
+  border: 26px;
+  border-top: 2px solid #f39c12;
+} */
+/* .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover {
+  z-index: 3;
+  color: #fff;
+  cursor: default;
+  background-color: #F06C16;
+  border-color: #F06C16;
+}
+.text-warning{ color:#F06C16} */
+
+.treeview-menu > li > a {
+  padding: 7px 5px 13px 10px;
+  display: block;
+  font-size: 1em;
+}
+.sidebar-menu > li > a > .fa, .sidebar-menu > li > a > .glyphicon, .sidebar-menu > li > a > .ion {
+  width: 24px;
+}
+hr {
+  border-top: 1px solid rgba(0,0,0,.12) !important;
+}
+.cdk-overlay-container, .cdk-overlay-pane {
+  z-index: 9999 !important;
+}
+.example-tooltip {
+  font-size: 14px !important;
+}
+.form-control {
+  border-radius: 4px;
+}
+.mat-checkbox-label {
+  line-height: 40px !important;
+  width: auto !important;
+}
+.mat-checkbox {
+  margin-left: 35px;  
+}
+.skin-black .sidebar-menu > li:hover > a, .skin-black .sidebar-menu > li.active > a, .skin-black .sidebar-menu > li.menu-open > a {
+  color: #fff;
+  background: #dd4b39;
+}
+.products-list .product-info {
+  margin-left: 10px;
+}
+@media (max-width: 767px){
+  .main-sidebar {
+      padding-top: 105px;
+  }}
+  @media (min-width: 767px){
+    .main-sidebar {
+        padding-top: 80px;
+    }}
+
+/****these class will be change from header.html during use of logo**/
+
+    @media (max-width: 767px){
+.skin-black .main-header .logo {
+    background-color: #dd4b39;
+    color: #fff;
+    border-bottom: 0 solid transparent;
+    border-right: none;
+}}
+
+@media (max-width: 767px){
+.skin-black .main-header .logo:hover {
+    background-color: #dd4b39;
+}}
+
+.text-light{
+  color:#dd4b39
+}
+
+@media (max-width: 767px){
+  .text-light{
+      color: #fff;
+  }}
+  /****these class will be change from header.html during use of logo**/

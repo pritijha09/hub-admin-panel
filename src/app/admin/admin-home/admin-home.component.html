@@ -1,0 +1,104 @@
+    <!-- Main content -->
+    <section class="content">
+      <ngx-spinner
+        bdColor="rgba(51,51,51,0.8)"
+        size="medium"
+        color="#fff"
+        type="ball-clip-rotate-multiple">
+        <p style="font-size: 20px; color: white; margin-top: -30px;">Loading...</p>
+      </ngx-spinner>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="callout callout-info">
+            <h4>Latest news!</h4>
+
+            <p>Add the fixed class to the body tag to get this layout. The fixed layout is your best option if your sidebar
+              is bigger than your content because it prevents extra unwanted scrolling.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <section class="col-lg-6 connectedSortable ui-sortable">
+
+            <div class="box">
+              <div class="box-header with-border">
+                <h3 class="box-title">Scheduled Mock Test</h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip"
+                          title="scheduled mock test list" (click)="onRoute('scheduled')">
+                    Scheduled Mock Test</button>
+                </div>
+              </div>
+              <div class="box-body table-responsive">
+                <table class="table table-hover table-bordered">
+                  <thead>
+                  <tr style="background-color: #f9f9f9;">
+                    <th>Mock Test</th>
+                    <th>Start Date-Time</th>
+                    <th>End Date-Time</th>
+                    <th>Status</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let data of responseData">
+                    <td>{{ data.test_title }}</td>
+                    <td>{{ data.start_date }} - {{ data.start_time }}</td>
+                    <td>{{ data.end_date }} - {{ data.end_time }}</td>
+                    <td [ngStyle]="{'color': (data.status==='pending') ? '#a94442' : (data.status==='active') ? '#28a745' : '#ffc107'}">
+                      <b>{{ data.status | titlecase }}</b></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+<!--                Footer-->
+              </div>
+              <!-- /.box-footer-->
+            </div>
+        </section>
+
+        <section class="col-lg-6 connectedSortable ui-sortable">
+            <div class="box">
+              <div class="box-header with-border">
+                <h3 class="box-title">Q. & A. Section</h3>
+                <div class="box-tools pull-right">
+<!--                  <button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip"-->
+<!--                          title="scheduled mock test list" (click)="onRoute('scheduled')">-->
+<!--                    Scheduled Mock Test</button>-->
+                </div>
+              </div>
+              <div class="box-body table-responsive tbody">
+                <table class="table table-hover table-bordered">
+                  <tbody>
+                  <tr *ngFor="let data of responseData">
+                    <td>
+                      <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="assets/images/user_no_image.png" alt="User Image">
+                        <span class="username">
+                          <a href="#">Sarah Ross</a>
+                          <span class="description pull-right">3 days ago</span>
+                        </span>
+                        <span class="description">Sent you a message
+                        Add the fixed class to the body tag to get this layout.
+                          The fixed layout is your best option if your sidebar is bigger
+                          than your content <a href="#" class="" style="color: blue">View</a></span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+<!--                Footer-->
+              </div>
+              <!-- /.box-footer-->
+            </div>
+        </section>
+      </div>
+      <!-- Default box -->
+      <!-- /.box -->
+
+    </section>

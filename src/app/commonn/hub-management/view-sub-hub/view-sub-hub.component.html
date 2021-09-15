@@ -1,0 +1,182 @@
+<section class="content">
+    <!-- <div class="row">
+        <a class="btn btn pull-right" style="margin-right: 12px;" routerLink="">
+            <i class="fa fa-download"></i> Smaple Download
+          </a>
+        <a class="btn btn pull-right" style="margin-right: 12px;" routerLink="">
+          <i class="fa fa-upload"></i> Upload Student Data
+        </a>
+          <a class="btn btn pull-right" style="margin-right: 12px;" routerLink="">
+            <i class="fa fa-plus"></i> Add Student
+          </a>
+      </div> -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-danger">
+                <div class="box-header with-border">
+                    <div class="col-md-6">
+                        <div class="has-feedback">
+                            <input type="text" class="form-control input-md margin"
+                                placeholder="e.g. hospital name, location, department">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <!-- <div class="btn-group pull-right margin">
+                        <button type="button" class="btn btn-default">copy</button>
+                        <button type="button" class="btn btn-default">csv</button>
+                        <button type="button" class="btn btn-default">print</button>
+                      </div> -->
+                    </div>
+                </div>
+                <!--/.box-header-->
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table id="mytable" class="table table-bordred table-striped">
+                            <thead>
+                                <tr>
+                                    <th>S.N</th>
+                                    <th>hospital Name</th>
+                                    <th>Email ID</th>
+                                    <th>Mobile No.</th>
+                                    <th>Department Name</th>
+                                    <th>H.O.D Name</th>
+                                    <th>H.O.D Contact No.</th>
+                                    <th>Address</th>
+                                    <th>Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>1</td>
+                                    <td>AIIMS, Delhi</td>
+                                    <td>abc@gmail.com</td>
+                                    <td>09284940552</td>
+                                    <td>Radiology Department (X-ray)</td>
+                                    <td>Dr. Jay Seth</td>
+                                    <td>09897989099</td>
+                                    <td>Sec. 12, Noida</td>
+                                    <td>
+                                        <a routerLink="/admin/patient-list">
+                                        <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="patient list">
+                                          <mat-icon>
+                                              <span class="material-icons">
+                                            receipt_long
+                                            </span></mat-icon>
+                                        </button></a>
+                                        <button mat-icon-button color="warn" matTooltipPosition="above" matTooltip="update list">
+                                            <mat-icon>update</mat-icon>
+                                          </button>
+                                          <mat-slide-toggle color="warn"></mat-slide-toggle>
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Medanta, Gurugram</td>
+                                    <td>abc@gmail.com</td>
+                                    <td>09284940552</td>
+                                    <td>Paramedical Department</td>
+                                    <td>Dr. Veer Singh</td>
+                                    <td>09897989099</td>
+                                    <td>Gurugram</td>
+                                    <td>
+                                        <a routerLink="/admin/patient-list">
+                                            <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="patient list">
+                                              <mat-icon>
+                                                  <span class="material-icons">
+                                                receipt_long
+                                                </span></mat-icon>
+                                            </button></a>
+                                        <button mat-icon-button color="warn" matTooltipPosition="above" matTooltip="update list">
+                                            <mat-icon>update</mat-icon>
+                                          </button>
+                                          <mat-slide-toggle color="warn"></mat-slide-toggle>
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Kailash, Noida</td>
+                                    <td>abc@gmail.com</td>
+                                    <td>09284940552</td>
+                                    <td>Pharmacy Department</td>
+                                    <td>Dr. Amar Yadav</td>
+                                    <td>09897989099</td>
+                                    <td>Sec. 12, Noida</td>
+                                    <td>
+                                        <a routerLink="/admin/patient-list">
+                                            <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="patient list">
+                                              <mat-icon>
+                                                  <span class="material-icons">
+                                                receipt_long
+                                                </span></mat-icon>
+                                            </button></a>
+                                        <button mat-icon-button color="warn" matTooltipPosition="above" matTooltip="update list">
+                                            <mat-icon>update</mat-icon>
+                                          </button>
+                                          <mat-slide-toggle color="warn"></mat-slide-toggle>
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>AIIMS Delhi</td>
+                                    <td>abc@gmail.com</td>
+                                    <td>09284940552</td>
+                                    <td>Physical Medicine</td>
+                                    <td>Dr. Jay Seth</td>
+                                    <td>09897989099</td>
+                                    <td>Sec. 12, Noida</td>
+                                    <td>
+                                        <a routerLink="/admin/patient-list">
+                                            <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="patient list">
+                                              <mat-icon>
+                                                  <span class="material-icons">
+                                                receipt_long
+                                                </span></mat-icon>
+                                            </button></a>
+                                        <button mat-icon-button color="warn" matTooltipPosition="above" matTooltip="update list">
+                                            <mat-icon>update</mat-icon>
+                                          </button>
+                                          <mat-slide-toggle color="warn"></mat-slide-toggle>
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>AIIMS Delhi</td>
+                                    <td>abc@gmail.com</td>
+                                    <td>09284940552</td>
+                                    <td>Radiology Department (X-ray)</td>
+                                    <td>Dr. Jay Seth</td>
+                                    <td>09897989099</td>
+                                    <td>New Delhi</td>
+                                    <td>
+                                        <a routerLink="/admin/patient-list">
+                                            <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="patient list">
+                                              <mat-icon>
+                                                  <span class="material-icons">
+                                                receipt_long
+                                                </span></mat-icon>
+                                            </button></a>
+                                        <button mat-icon-button color="warn" matTooltipPosition="above" matTooltip="update list">
+                                            <mat-icon>update</mat-icon>
+                                          </button>
+                                          <mat-slide-toggle color="warn"></mat-slide-toggle>
+                                      </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="clearfix">
+                            <mat-paginator [length]="50" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+                            </mat-paginator>
+                        </div>
+                       
+                    </div>
+                </div>
+                <!--/table-->
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</section>

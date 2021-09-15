@@ -1,0 +1,50 @@
+.small-box {
+   
+    box-shadow: 10px 10px 5px #8080806e;     
+}
+
+    .small-box .icon {
+        top: 5px; 
+        
+    }
+    .small-box > .inner {
+        padding: 12px;
+    }
+    .icon{
+        font-size: 80px
+
+    }
+    /* .box{
+        border-top:none
+    } */
+    .small-box .icon {
+        -webkit-transition: all 0.3s linear;
+        -o-transition: all 0.3s linear;
+        transition: all 0.3s linear;
+        position: absolute;
+        top: 5px;
+        left: 10px;
+        z-index: 0;
+        font-size: 90px;
+         color:aliceblue;
+    }
+    
+    .small-box {
+       
+        box-shadow: 10px 10px 5px #8080806e;
+        font-size: 16px;
+       
+        
+    }
+    .small-box > .small-box-footer {
+        
+        text-align: right;
+        padding: 3px 10px;
+       
+    }
+    .small-box > .inner {
+        padding: 10px;
+        text-align: right;
+    }
+    
+    

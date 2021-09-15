@@ -1,0 +1,19 @@
+.box {
+    position: relative;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: none;
+    margin-bottom: 20px;
+     border-top: none;
+    width: 100%;
+    box-shadow: -1px 4px 8px 5px rgb(0 0 0 / 10%);
+    border-radius: 4px;
+}
+.box-header {
+    color: #ffff;
+    display: block;
+    padding: 10px 16px 5px 15px;
+    position: relative;
+    background: #116466 !important;
+    border-radius: 4px;
+}

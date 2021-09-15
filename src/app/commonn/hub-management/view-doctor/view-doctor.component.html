@@ -1,0 +1,146 @@
+<section class="content">
+    <!-- <div class="row">
+        <a class="btn btn pull-right" style="margin-right: 12px;" routerLink="">
+            <i class="fa fa-download"></i> Smaple Download
+          </a>
+        <a class="btn btn pull-right" style="margin-right: 12px;" routerLink="">
+          <i class="fa fa-upload"></i> Upload Student Data
+        </a>
+          <a class="btn btn pull-right" style="margin-right: 12px;" routerLink="">
+            <i class="fa fa-plus"></i> Add Student
+          </a>
+      </div> -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-danger">
+                <div class="box-header with-border">
+                    <div class="col-md-6">
+                        <div class="has-feedback">
+                            <input type="text" class="form-control input-md margin"
+                                placeholder="e.g. hospital name, location, doctor name, department">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <!-- <div class="btn-group pull-right margin">
+                        <button type="button" class="btn btn-default">copy</button>
+                        <button type="button" class="btn btn-default">csv</button>
+                        <button type="button" class="btn btn-default">print</button>
+                      </div> -->
+                    </div>
+                </div>
+                <!--/.box-header-->
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table id="mytable" class="table table-bordred table-striped">
+                            <thead>
+                                <tr>
+                                    <th>S.N</th>
+                                    <th>Doctor Name</th>
+                                    <th>Mobile No.</th>
+                                    <th>Email ID</th>
+                                    <th>Hospital Name</th>
+                                    <th>Department Name</th>
+                                    <th>Address</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>1</td>
+                                    <td>Dr. Deepak</td>
+                                    <td>0999900900</td>
+                                    <td>acb@gmail.com</td>
+                                    <td>AIIMS, Delhi</td>
+                                    <td>Neurology</td>
+                                    <td>Greater Kailash</td>
+                                    <td>
+                                        <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="view">
+                                          <mat-icon><span class="material-icons">
+                                            visibility
+                                            </span></mat-icon>
+                                        </button>
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Dr. Deepak</td>
+                                    <td>0999900900</td>
+                                    <td>acb@gmail.com</td>
+                                    <td>AIIMS, Delhi</td>
+                                    <td>Neurology</td>
+                                    <td>Greater Kailash</td>
+                                    <td>
+                                        <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="view">
+                                          <mat-icon><span class="material-icons">
+                                            visibility
+                                            </span></mat-icon>
+                                        </button>
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Dr. Deepak</td>
+                                    <td>0999900900</td>
+                                    <td>acb@gmail.com</td>
+                                    <td>AIIMS, Delhi</td>
+                                    <td>Neurology</td>
+                                    <td>Greater Kailash</td>
+                                    <td>
+                                        <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="view">
+                                          <mat-icon><span class="material-icons">
+                                            visibility
+                                            </span></mat-icon>
+                                        </button>
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Dr. Deepak</td>
+                                    <td>0999900900</td>
+                                    <td>acb@gmail.com</td>
+                                    <td>AIIMS, Delhi</td>
+                                    <td>Neurology</td>
+                                    <td>Greater Kailash</td>
+                                    <td>
+                                        <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="view">
+                                          <mat-icon><span class="material-icons">
+                                            visibility
+                                            </span></mat-icon>
+                                        </button>
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Dr. Deepak</td>
+                                    <td>0999900900</td>
+                                    <td>acb@gmail.com</td>
+                                    <td>AIIMS, Delhi</td>
+                                    <td>Neurology</td>
+                                    <td>Greater Kailash</td>
+                                    <td>
+                                        <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="view">
+                                          <mat-icon><span class="material-icons">
+                                            visibility
+                                            </span></mat-icon>
+                                        </button>
+                                      </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="clearfix">
+                            <mat-paginator [length]="50" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+                            </mat-paginator>
+                        </div>
+                       
+                    </div>
+                </div>
+                <!--/table-->
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</section>
+
