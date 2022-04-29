@@ -16,10 +16,10 @@ import { AddDoctorComponent } from '../commonn/hub-management/add-doctor/add-doc
 const routes: Routes = [
   {
     path: '',
-    data: { title: 'Admin' },
+    data: { title: 'Home' },
     children: [
       {
-        path: '', component: AdminHomeComponent,
+        path: '', component: HomeComponent,
         data: {
           title: 'Dashboard',
           breadcrumb: 'Dashboard'

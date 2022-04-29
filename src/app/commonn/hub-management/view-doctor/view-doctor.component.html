@@ -1,4 +1,7 @@
 <section class="content">
+        <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+                <p style="color: white">Please Wait. </p>  
+                </ngx-spinner>
     <!-- <div class="row">
         <a class="btn btn pull-right" style="margin-right: 12px;" routerLink="">
             <i class="fa fa-download"></i> Smaple Download
@@ -16,7 +19,7 @@
                 <div class="box-header with-border">
                     <div class="col-md-6">
                         <div class="has-feedback">
-                            <input type="text" class="form-control input-md margin"
+                            <input type="text" class="form-control input-md margin" [(ngModel)]="searchText" name="search"
                                 placeholder="e.g. hospital name, location, doctor name, department">
                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
                         </div>
@@ -48,14 +51,14 @@
                             </thead>
                             <tbody>
 
-                                <tr>
-                                    <td>1</td>
-                                    <td>Dr. Deepak</td>
-                                    <td>0999900900</td>
-                                    <td>acb@gmail.com</td>
-                                    <td>AIIMS, Delhi</td>
-                                    <td>Neurology</td>
-                                    <td>Greater Kailash</td>
+                                <tr *ngFor="let list of doctorList | grdFilter: searchText; let index=index">
+                                    <td>{{index+1}}</td>
+                                    <td>{{list.doctor_name}}</td>
+                                    <td>{{list.mobile}}</td>
+                                    <td>{{list.email}}</td>
+                                    <td>{{list.hospital_name}}</td>
+                                    <td>{{list.department_name}}</td>
+                                    <td>{{list.address}}</td>
                                     <td>
                                         <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="view">
                                           <mat-icon><span class="material-icons">
@@ -63,71 +66,7 @@
                                             </span></mat-icon>
                                         </button>
                                       </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Dr. Deepak</td>
-                                    <td>0999900900</td>
-                                    <td>acb@gmail.com</td>
-                                    <td>AIIMS, Delhi</td>
-                                    <td>Neurology</td>
-                                    <td>Greater Kailash</td>
-                                    <td>
-                                        <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="view">
-                                          <mat-icon><span class="material-icons">
-                                            visibility
-                                            </span></mat-icon>
-                                        </button>
-                                      </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Dr. Deepak</td>
-                                    <td>0999900900</td>
-                                    <td>acb@gmail.com</td>
-                                    <td>AIIMS, Delhi</td>
-                                    <td>Neurology</td>
-                                    <td>Greater Kailash</td>
-                                    <td>
-                                        <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="view">
-                                          <mat-icon><span class="material-icons">
-                                            visibility
-                                            </span></mat-icon>
-                                        </button>
-                                      </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Dr. Deepak</td>
-                                    <td>0999900900</td>
-                                    <td>acb@gmail.com</td>
-                                    <td>AIIMS, Delhi</td>
-                                    <td>Neurology</td>
-                                    <td>Greater Kailash</td>
-                                    <td>
-                                        <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="view">
-                                          <mat-icon><span class="material-icons">
-                                            visibility
-                                            </span></mat-icon>
-                                        </button>
-                                      </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Dr. Deepak</td>
-                                    <td>0999900900</td>
-                                    <td>acb@gmail.com</td>
-                                    <td>AIIMS, Delhi</td>
-                                    <td>Neurology</td>
-                                    <td>Greater Kailash</td>
-                                    <td>
-                                        <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="view">
-                                          <mat-icon><span class="material-icons">
-                                            visibility
-                                            </span></mat-icon>
-                                        </button>
-                                      </td>
-                                </tr>
+                              
                             </tbody>
                         </table>
                         <div class="clearfix">

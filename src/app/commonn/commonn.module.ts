@@ -18,6 +18,7 @@ import { PatientListComponent } from './patient-management/patient-list/patient-
 import { AddDoctorComponent } from './hub-management/add-doctor/add-doctor.component';
 import { ViewDoctorComponent } from './hub-management/view-doctor/view-doctor.component';
 import { PatientDetailsComponent } from './patient-management/patient-details/patient-details.component';
+import { GrdFilterPipe } from './_pipe/grd-filter.pipe';
 
 
 
@@ -33,7 +34,8 @@ import { PatientDetailsComponent } from './patient-management/patient-details/pa
     PatientListComponent,
     AddDoctorComponent,
     ViewDoctorComponent,
-    PatientDetailsComponent
+    PatientDetailsComponent,
+    GrdFilterPipe
     
   ],
   imports: [

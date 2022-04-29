@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:4200',
-  apiUrl: 'http://localhost:8000/api',
+  apiUrl: 'http://aiimsapi.appqik.com/public/api/',
   apiBaseUrl: 'http://localhost:8000',
 };
 

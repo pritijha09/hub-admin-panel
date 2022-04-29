@@ -6,7 +6,13 @@
 @import '~@swimlane/ngx-datatable/index.css';
 @import '~@swimlane/ngx-datatable/themes/material.css';
 @import '~@swimlane/ngx-datatable/assets/icons.css';
+.invalid {
+    color: #b91919;
+}
 
+#swal2-content{
+    font-size: 15px !important;
+}
 /*@import "~sweetalert2/dist/sweetalert2.css";*/
 /*@import "../node_modules/sweetalert2/dist/sweetalert2.css";*/
 

@@ -1,4 +1,7 @@
 <section class="content">
+        <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+                <p style="color: white">Please Wait. </p>  
+                </ngx-spinner>
     <div class="row">
         <div class="col-md-12">
             <div class="box box-danger">
@@ -8,98 +11,127 @@
                 </div>
                 <!--/.box-header-->
                 <div class="box-body">
+                <form #addClinicform="ngForm" (ngSubmit)="addClinicform.form.valid && onSubmit(addClinicform)" novalidate>
                     <div class="row">
-                        <form>
+                       
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="hospitalName">Hospital Name</label>
-                                    <input type="email" class="form-control" id="" placeholder="e.g. AIIMs Delhi">
+                                    <input type="email" class="form-control" id="" placeholder="e.g. AIIMs Delhi" [(ngModel)]="addClinic.hospital_name" name="hospitalName" #hospitalName="ngModel" required required>
+                                    <div class="invalid-feedback" *ngIf="addClinicform.submitted && hospitalName.invalid" class="invalid">
+                                        <p *ngIf="hospitalName.errors?.required">Doctor name is required.</p>
+                                      </div> 
                                   </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="abc@gmail.com">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="abc@gmail.com" name="email" [(ngModel)]="addClinic.email" #email="ngModel" required>
+                                    <div class="invalid-feedback" *ngIf="addClinicform.submitted && email.invalid" class="invalid">
+                                        <p *ngIf="email.errors?.required">Email is required.</p>
+                                      </div> 
                                   </div>
                             </div>
                         
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Mobile No.</label>
-                                <input type="mobile" class="form-control" id="mobile" placeholder="mobile no.">
+                                <input type="mobile" class="form-control" minlength="10" maxlength="10" id="mobile" placeholder="mobile no." name="mobile" [(ngModel)]="addClinic.mobile" #mobile="ngModel" required>
+                                <div class="invalid-feedback" *ngIf="addClinicform.submitted && mobile.invalid" class="invalid">
+                                    <p *ngIf="mobile.errors?.required">Mobile is required.</p>
+                                  </div> 
                               </div>
                         </div>
-                    </form>
+                 
                     </div>
                     <div class="row">
-                        <form>
+                       
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>State</label>
-                                    <select class="form-control">
+                                    <select class="form-control" name="state" [(ngModel)]="addClinic.state_id" #state="ngModel" required>
                                         <option>--Select--</option>
-                                        <option>Delhi</option>
-                                        <option>Uttar-Pradesh</option>
-                                        <option>Hariyana</option>
-                                        <option>Punjab</option>
+                                        <option [value]="'1'">Delhi</option>
+                                        <!-- <option [value]="'2'">Uttar-Pradesh</option>
+                                        <option [value]="'3'">Hariyana</option>
+                                        <option [value]="'4'">Punjab</option> -->
                                     </select>
+                                    <div class="invalid-feedback" *ngIf="addClinicform.submitted && state.invalid" class="invalid">
+                                        <p *ngIf="state.errors?.required">Doctor name is required.</p>
+                                      </div> 
                                   </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>District</label>
-                                    <select class="form-control">
-                                        <option>--Select--</option>
-                                        <option>South Delhi</option>
-                                        <option>Noida</option>
-                                        <option>Gurugram</option>
-                                        <option>Chandigarh</option>
+                                    <select class="form-control" name="district" [(ngModel)]="addClinic.district_id" #district="ngModel" required>
+                                        <option [value]="'1'">Central Delhi</option>
+                                        <option [value]="'2'">East Delhi</option>
+                                        <option [value]="'3'">New Delhi</option>
+                                        <option [value]="'4'">North East Delhi</option>
+                                        <option [value]="'5'">North West Delhi</option>
+                                        <option [value]="'6'">Shahdara</option>
+                                        <option [value]="'7'">South Delhi</option>
+                                        <option [value]="'8'">South East Delhi</option>
+                                        <option [value]="'9'">South West Delhi</option>
+                                        <option [value]="'10'">West Delhi</option>
                                     </select>
+                                    <div class="invalid-feedback" *ngIf="addClinicform.submitted && district.invalid" class="invalid">
+                                        <p *ngIf="district.errors?.required">District is required.</p>
+                                      </div> 
                                   </div>
                             </div>
                         
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Address</label>
-                                <input type="text" class="form-control" id="address" placeholder="e.g. South Delhi">
+                                <input type="text" class="form-control" id="address" placeholder="e.g. South Delhi" name="address" [(ngModel)]="addClinic.address" #address="ngModel" required>
+                                <div class="invalid-feedback" *ngIf="addClinicform.submitted && address.invalid" class="invalid">
+                                    <p *ngIf="address.errors?.required">Address is required.</p>
+                                  </div> 
                               </div>
                         </div>
-                    </form>
+                   
                     </div>
                     <div class="row">
-                        <form>
+                       
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Department Name</label>
-                                    <select class="form-control">
+                                    <select class="form-control" name="department_name" #department_name="ngModel" [(ngModel)]="addClinic.department_id" (change)="getSelectedDepartment($event.target.value)" required>
                                         <option>--Select--</option>
-                                        <option>Radiology Department (X-ray)</option>
-                                        <option> Operation Theatre Complex (OT)</option>
-                                        <option>Medical Department</option>
-                                        <option>Outpatient department (OPD</option>
+                                        <option *ngFor="let list of departmentList" [value]="list.id">{{list.name}}</option>        
                                     </select>
                                   </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="hodName">H.O.D Name</label>
-                                    <input type="text" class="form-control" id="" placeholder="name of head of department">
+                                    <input type="text" class="form-control" id="" placeholder="name of head of department" name="hodName" [(ngModel)]="addClinic.hod_name" #hodName="ngModel">
                                 </div>
                             </div>
                         
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="hodMobile">H.O.D Contact No.</label>
-                                <input type="text" class="form-control" id="" placeholder="contact of head of department">
+                                <input type="text" class="form-control" id="" minlength="10" maxlength="10" placeholder="contact of head of department" name="hodContact" [(ngModel)]="addClinic.hod_contact" #hodContact="ngModel">
                             </div>
                         </div>
                         <div class="col-md-3">
-                            
+                                <div class="form-group">
+                                        <label for="hodMobile">Password</label>
+                                        <input type="password" class="form-control" id="" placeholder="Password" name="password" [(ngModel)]="addClinic.password" #password="ngModel" required>
+                                       
+                                        <div *ngIf="addClinicform.submitted && password.invalid" class="invalid">
+                                            <p *ngIf="password.errors?.required">Password is required.</p>
+                                        </div>
+                                    </div>
                         </div>
-                    </form>
+                   
                     </div>
                     <button mat-raised-button color="primary" class="pull-right" 
                             style="margin-top:23px; margin-bottom: 10px">Save</button>
+                </form>
                 </div>
             </div>
         </div>

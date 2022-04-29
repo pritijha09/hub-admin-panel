@@ -4,6 +4,8 @@ import { AuthenticationService } from 'src/app/_services';
 import { ActivatedRoute, Router } from '@angular/router';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
+import { NgxSpinnerService } from "ngx-spinner";
+import { CoreHttpService } from 'src/app/_services/coreHttpServices/core-http.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,11 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginFormGroup: FormGroup;
+    loginFormGroup: FormGroup;
+    isSubmitted = false;
+  
+    returnUrl: string;
+    error = "";
   
 
   // returnUrl: string;
@@ -25,17 +31,65 @@ export class LoginComponent implements OnInit {
   // };
   // model: any = {};
 
-  constructor(private _formBuilder: FormBuilder) {}
-    
+  constructor(
+    private SpinnerService: NgxSpinnerService,
+    private _formBuilder: FormBuilder,
+    private coreHttpService: CoreHttpService,
+    private authenticationService: AuthenticationService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.loginFormGroup = this._formBuilder.group({
-      
-      user_id:['', Validators.required,],
-      user_password:['', Validators.required],
-      
+      email: ["", Validators.required],
+      password: ["", Validators.required]
     });
   }
+
+  get formControls() {
+    return this.loginFormGroup.controls;
+  }
+
+  onLogin() {
+    this.SpinnerService.show();
+    this.isSubmitted = true;
+    if (this.loginFormGroup.invalid) {
+      return;
+    } else {
+      this.coreHttpService
+        .post("hub/login", this.loginFormGroup.value)
+        .subscribe(
+          data => {
+            //  this.isLoading = false;
+            if (data.response === 200) {
+              this.loginFormGroup.reset(this.loginFormGroup.value);
+              this.SpinnerService.hide();
+              // store user details and jwt token in local storage to keep user logged in between page refreshes
+              localStorage.setItem("currentUser", JSON.stringify(data.result));
+              this.returnUrl =
+                data.result.role === "Institute" ? "/institute" : "/admin";
+              this.router.navigate([this.returnUrl]);
+            } else {
+                this.SpinnerService.hide();
+              this.error = "Email or Password Doesn't Exist!";
+            }
+          },
+          error => {
+            this.SpinnerService.hide();
+             this.handleError(error);
+          }
+        );
+    }
+    //   // this.isLoading = true;
+    //   console.log('call');
+    //   this.router.navigate(['/add-student']);
+    // console.log(this.model.email);
+
+    // const data = {email: userData.username.value , password: userData.password.value , mode: 'web', device_id : null};
+  }
+    handleError(errorData) {
+      this.error = errorData;
+    }
 
   // onLogin() {
   //   // this.isLoading = true;

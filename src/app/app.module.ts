@@ -18,11 +18,11 @@ import { AdminModule } from './admin/admin.module';
 import { CommonnModule } from './commonn/commonn.module';
 import { LoginComponent } from './layout/login/login.component';
 import { BreadcrumbComponent } from './layout/breadcrumb/breadcrumb.component';
-import { JwtInterceptor } from './_helpers/jwt.interceptor';
+// import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 // import { LoadingBarService } from '@ngx-loading-bar/core';
-import { LoadingBarModule } from '@ngx-loading-bar/core';
+// import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { RegisterComponent } from './layout/register/register.component';
 import {NgxPaginationModule} from 'ngx-pagination';;
 import {MatInputModule} from '@angular/material/input';
@@ -60,7 +60,7 @@ const APP_CONTAINERS = [
     CommonnModule,
     HttpClientModule,
     LoadingBarRouterModule,
-    LoadingBarModule,
+   // LoadingBarModule,
     ReactiveFormsModule,
     FormsModule,
     NgxPaginationModule,
@@ -79,7 +79,8 @@ const APP_CONTAINERS = [
   ],
 
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+   // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  //  {provide: HTTP_INTERCEPTORS, useClass: HttpHeaderInterceptorService, multi: true},
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

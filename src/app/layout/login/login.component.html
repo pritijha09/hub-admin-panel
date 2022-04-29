@@ -1,4 +1,7 @@
 <section class="login_wrapper">
+        <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+                <p style="color: white">Please Wait. </p>  
+                </ngx-spinner>
     <div class="login_form div1 login-form-1">
         <div class="row">
             <label></label>
@@ -16,24 +19,30 @@
         </div>
         <div class="row">
             <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1" style="text-align: center;">  
-              <form class="example-full-width" [formGroup]="loginFormGroup">
-                <mat-form-field appearance="">
-                  <mat-label>Enter your email</mat-label>
-                  <input matInput placeholder="abc@example.com" formControlName="user_id" required>
-                  <mat-icon matSuffix>email</mat-icon>
-                  <mat-error></mat-error>
-                </mat-form-field>
+                <form class="example-full-width" [formGroup]="loginFormGroup" (ngSubmit)="onLogin()">
+                    <mat-form-field appearance="">
+                      <mat-label>Enter your email</mat-label>
+                      <input matInput placeholder="abc@example.com" formControlName="email" required>
+                      <mat-icon matSuffix>email</mat-icon>
+                      <mat-error *ngIf="isSubmitted && formControls.email.errors">
+                        <div *ngIf="formControls.email.errors.required">Email is required</div>
+                      </mat-error>
+                    </mat-form-field>
+                  
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Enter Password</mat-label>
+                      <input matInput type="password" formControlName="password" placeholder="password" required>
+                      <mat-icon matSuffix>lock</mat-icon>
+                      <mat-error *ngIf="isSubmitted && formControls.password.errors">
+                        <div *ngIf="formControls.password.errors.required">Password is required</div>
+                      </mat-error>
+                    </mat-form-field>
+                    <section class="example-section" style="margin-left: -37px;">
+                      <mat-checkbox class="example" color="primary">Remember Password</mat-checkbox>
+                    </section>
+                    <button mat-raised-button color="primary">Login</button>
+                  </form>
               
-                <mat-form-field class="example-full-width">
-                  <mat-label>Enter Password</mat-label>
-                  <input matInput type="password" formControlName="user_password" placeholder="password" required>
-                  <mat-icon matSuffix>lock</mat-icon>
-                </mat-form-field>
-                <section class="example-section" style="margin-left: -37px;">
-                  <mat-checkbox class="example" color="primary">Remember Password</mat-checkbox>
-                </section>
-              </form>
-              <button mat-raised-button color="primary">Login</button>
               <br>
               <br>
               <a href="">I forgot my password</a>
