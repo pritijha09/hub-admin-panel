@@ -13,6 +13,10 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class AddDoctorComponent implements OnInit {
     private apiBaseURL: string;
+    
+public stateList: any[] = [];
+public districtList: any[] = [];
+
 public addDoctor: AddDoctor = new AddDoctor();
 public departmentList = [{id: '1', name: 'Radiology Department (X-ray)'},
 {id: '2', name: 'Operation Theatre Complex (OT)'},
@@ -24,6 +28,33 @@ public departmentList = [{id: '1', name: 'Radiology Department (X-ray)'},
    }
 
   ngOnInit(): void {
+      this.getStateList();
+  }
+
+   /** Method to get state list */
+   getStateList() {
+    this.SpinnerService.show();
+    this.coreHttpService.get('get-state-list').subscribe(response=> {
+        console.log(response);
+        this.SpinnerService.hide();
+        this.stateList = response.result;
+    },error=>{
+        this.SpinnerService.hide();
+        console.log(error)
+    })
+  }
+
+  /** Method to get selected state */
+  getSelectedState(){
+    this.SpinnerService.show();
+      this.coreHttpService.post('get-district-list', {id: this.addDoctor.state_id}).subscribe(response=> {
+        this.SpinnerService.hide();
+        this.districtList = response.result;
+        //this.stateList = response.result;
+    },error=>{
+        this.SpinnerService.hide();
+        console.log(error)
+    })
   }
 
     /** Method to get selected deplartment*/

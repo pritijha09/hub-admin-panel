@@ -66,7 +66,7 @@
                                 <div class="form-group">
                                     <label>Department Name</label>
                                     <select class="form-control" name="department_name" #department_name="ngModel" [(ngModel)]="addDoctor.department_id" (change)="getSelectedDepartment($event.target.value)" required>
-                                        <option>--Select--</option>
+                                        
                                         <option *ngFor="let list of departmentList" [value]="list.id">{{list.name}}</option>        
                                     </select>
                                   </div>
@@ -74,29 +74,20 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>State</label>
-                                    <select class="form-control" name="state" [(ngModel)]="addDoctor.state_id" #state="ngModel">
-                                        <option>--Select--</option>
-                                        <option [value]="'1'">Delhi</option>
-                                        <!-- <option [value]="'2'">Uttar-Pradesh</option>
-                                        <option [value]="'3'">Hariyana</option>
-                                        <option [value]="'4'">Punjab</option> -->
+                                    <select class="form-control" name="state" [(ngModel)]="addDoctor.state_id" #state="ngModel" (change)="getSelectedState()">
+                                        <option *ngFor="let list of stateList" [value]="list.id">{{list.state_name}}</option>
                                     </select>
                                   </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>District</label>
-                                    <select class="form-control"  name="district" [(ngModel)]="addDoctor.district_id" #district="ngModel">
-                                        <option [value]="'1'">Central Delhi</option>
-                                        <option [value]="'2'">East Delhi</option>
-                                        <option [value]="'3'">New Delhi</option>
-                                        <option [value]="'4'">North East Delhi</option>
-                                        <option [value]="'5'">North West Delhi</option>
-                                        <option [value]="'6'">Shahdara</option>
-                                        <option [value]="'7'">South Delhi</option>
-                                        <option [value]="'8'">South East Delhi</option>
-                                        <option [value]="'9'">South West Delhi</option>
-                                        <option [value]="'10'">West Delhi</option>
+                                    <select class="form-control" 
+                                    [disabled]="!addDoctor.state_id"
+                                      name="district" [(ngModel)]="addDoctor.district_id" #district="ngModel">
+                                       
+                                    <option [value]="list.id" *ngFor="let list of districtList">{{list.district_name}}</option>
+
                                     </select>
                                   </div>
                             </div>

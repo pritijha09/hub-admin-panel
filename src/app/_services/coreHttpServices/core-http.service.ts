@@ -79,8 +79,8 @@ private apiBaseURL: string;
  
     // const headers = new HttpHeaders();
      let headers = new HttpHeaders();
-     headers = headers.set("Content-Type", "application/json");
-     headers = headers.set("Authorization", token);
+      headers.set("Content-Type", "application/json")
+     .set("Authorization", token);
      console.log(headers)
    
     //  console.log(httpHeaders)

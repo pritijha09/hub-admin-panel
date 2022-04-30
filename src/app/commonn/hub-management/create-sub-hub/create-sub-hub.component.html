@@ -39,6 +39,9 @@
                                 <input type="mobile" class="form-control" minlength="10" maxlength="10" id="mobile" placeholder="mobile no." name="mobile" [(ngModel)]="addClinic.mobile" #mobile="ngModel" required>
                                 <div class="invalid-feedback" *ngIf="addClinicform.submitted && mobile.invalid" class="invalid">
                                     <p *ngIf="mobile.errors?.required">Mobile is required.</p>
+                                    <p *ngIf="!mobile.errors?.required && mobile.errors?.minlength">Mobile number should be 10.</p>
+                                    <p *ngIf="!mobile.errors?.required && !mobile.errors?.minlength && mobile.errors?.maxlength">Mobile number should be 10.</p>
+
                                   </div> 
                               </div>
                         </div>
@@ -49,32 +52,23 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>State</label>
-                                    <select class="form-control" name="state" [(ngModel)]="addClinic.state_id" #state="ngModel" required>
-                                        <option>--Select--</option>
-                                        <option [value]="'1'">Delhi</option>
-                                        <!-- <option [value]="'2'">Uttar-Pradesh</option>
-                                        <option [value]="'3'">Hariyana</option>
-                                        <option [value]="'4'">Punjab</option> -->
+                                    <select class="form-control" name="state" [(ngModel)]="addClinic.state_id" #state="ngModel" (change)="getSelectedState()" required>
+                                        <option *ngFor="let list of stateList" [value]="list.id">{{list.state_name}}</option>
                                     </select>
                                     <div class="invalid-feedback" *ngIf="addClinicform.submitted && state.invalid" class="invalid">
-                                        <p *ngIf="state.errors?.required">Doctor name is required.</p>
+                                        <p *ngIf="state.errors?.required">State is required.</p>
                                       </div> 
                                   </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>District</label>
-                                    <select class="form-control" name="district" [(ngModel)]="addClinic.district_id" #district="ngModel" required>
-                                        <option [value]="'1'">Central Delhi</option>
-                                        <option [value]="'2'">East Delhi</option>
-                                        <option [value]="'3'">New Delhi</option>
-                                        <option [value]="'4'">North East Delhi</option>
-                                        <option [value]="'5'">North West Delhi</option>
-                                        <option [value]="'6'">Shahdara</option>
-                                        <option [value]="'7'">South Delhi</option>
-                                        <option [value]="'8'">South East Delhi</option>
-                                        <option [value]="'9'">South West Delhi</option>
-                                        <option [value]="'10'">West Delhi</option>
+                                    <select class="form-control" name="district" 
+                                    [disabled]="!addClinic.state_id"
+                                     [(ngModel)]="addClinic.district_id" #district="ngModel" required>
+                                       
+                                        <option [value]="list.id" *ngFor="let list of districtList">{{list.district_name}}</option>
+
                                     </select>
                                     <div class="invalid-feedback" *ngIf="addClinicform.submitted && district.invalid" class="invalid">
                                         <p *ngIf="district.errors?.required">District is required.</p>
@@ -99,7 +93,7 @@
                                 <div class="form-group">
                                     <label>Department Name</label>
                                     <select class="form-control" name="department_name" #department_name="ngModel" [(ngModel)]="addClinic.department_id" (change)="getSelectedDepartment($event.target.value)" required>
-                                        <option>--Select--</option>
+                                        
                                         <option *ngFor="let list of departmentList" [value]="list.id">{{list.name}}</option>        
                                     </select>
                                   </div>
@@ -114,7 +108,13 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="hodMobile">H.O.D Contact No.</label>
-                                <input type="text" class="form-control" id="" minlength="10" maxlength="10" placeholder="contact of head of department" name="hodContact" [(ngModel)]="addClinic.hod_contact" #hodContact="ngModel">
+                                <input type="text" class="form-control" id="" minlength="10" maxlength="10" placeholder="contact of head of department" name="hodContact" [(ngModel)]="addClinic.hod_contact" #hodContact="ngModel" required>
+                                <div *ngIf="addClinicform.submitted && hodContact.invalid" class="invalid">
+                                    <p *ngIf="hodContact.errors?.required">Password is required.</p>
+                                    <p *ngIf="!hodContact.errors?.required && hodContact.errors?.minlength">Mobile number should be 10.</p>
+                                    <p *ngIf="!hodContact.errors?.required && !hodContact.errors?.minlength && hodContact.errors?.maxlength">Mobile number should be 10.</p>
+
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-3">

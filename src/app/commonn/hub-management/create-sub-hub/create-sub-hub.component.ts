@@ -12,6 +12,10 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./create-sub-hub.component.css']
 })
 export class CreateSubHubComponent implements OnInit {
+    
+public stateList: any[] = [];
+public districtList: any[] = [];
+
 public addClinic: AddClinicModel = new AddClinicModel();
 public departmentList = [{id: '1', name: 'Radiology Department (X-ray)'},
 {id: '2', name: 'Operation Theatre Complex (OT)'},
@@ -20,6 +24,32 @@ public departmentList = [{id: '1', name: 'Radiology Department (X-ray)'},
   constructor(private coreHttpService: CoreHttpService,  private SpinnerService: NgxSpinnerService,) { }
 
   ngOnInit(): void {
+    this.getStateList();
+  }
+
+   /** Method to get state list */
+   getStateList() {
+    this.SpinnerService.show();
+    this.coreHttpService.get('get-state-list').subscribe(response=> {
+        console.log(response);
+        this.SpinnerService.hide();
+        this.stateList = response.result;
+    },error=>{
+        this.SpinnerService.hide();
+        console.log(error)
+    })
+  }
+
+  /** Method to get selected state */
+  getSelectedState(){
+    this.SpinnerService.show();
+      this.coreHttpService.post('get-district-list', {id: this.addClinic.state_id}).subscribe(response=> {
+       this.SpinnerService.hide();
+        this.districtList = response.result;
+    },error=>{
+        this.SpinnerService.hide();
+        console.log(error)
+    })
   }
 
     /** Method to get selected deplartment*/
