@@ -29,10 +29,10 @@ public ecgReport: EcgReportModel[] = [];
 
   getPatientDetails(id){
     let body = {
-        "id": id,
+        "id": Number(id),
       }
     this.spinnerService.show();
-    this.coreHttpService.post(`admin/get-patient-detail-by-id`, body).subscribe(res=>{
+    this.coreHttpService.post(`hub/get-patient-detail-by-id`, body).subscribe(res=>{
         this.spinnerService.hide();
         if(res.response===200){
           this.patientDetails = res.result[0].patient_detail[0];

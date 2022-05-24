@@ -56,7 +56,7 @@ private apiBaseURL: string;
             'Content-Type': 'application/json',
             Authorization: `Bearer ${currentUser.token}`
           });
-          debugger
+         // debugger
           return this.httpClient.post(`${this.apiBaseURL}${endpoint}`, data, {headers: httpHeaders});
     } else {
       const  httpHeaders = new HttpHeaders ({
@@ -88,7 +88,7 @@ private apiBaseURL: string;
   }
 
   postfile(endpoint: string, data, header:HttpHeaders): Observable<any> {
-      debugger
+    //  debugger
     return this.httpClient.post(`${this.apiBaseURL}${endpoint}`, data, {headers:header}); 
   }
 }

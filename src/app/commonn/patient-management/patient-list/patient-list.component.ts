@@ -29,7 +29,7 @@ export class PatientListComponent implements OnInit {
         "end_date":"2022-05-30"
       }
     this.spinnerService.show();
-    this.coreHttpService.post(`clinic/get-patient-list-by-clinic`, body).subscribe(res=>{
+    this.coreHttpService.post(`hub/get-patient-list-by-hub`, body).subscribe(res=>{
         this.spinnerService.hide();
         if(res.response===200){
           this.patientList = res.result;
