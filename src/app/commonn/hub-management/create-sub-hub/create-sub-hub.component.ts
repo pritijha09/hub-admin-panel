@@ -5,6 +5,7 @@ import { CoreHttpService } from 'src/app/_services/coreHttpServices/core-http.se
 import { NgxSpinnerService } from 'ngx-spinner';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { HttpHeaders } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-sub-hub',
@@ -21,10 +22,28 @@ public departmentList = [{id: '1', name: 'Radiology Department (X-ray)'},
 {id: '2', name: 'Operation Theatre Complex (OT)'},
 {id: '3', name: 'Medical Department'},
 {id: '4', name: 'Outpatient department (OPD)'}]
-  constructor(private coreHttpService: CoreHttpService,  private SpinnerService: NgxSpinnerService,) { }
+  constructor(private activatedRoute: ActivatedRoute, private coreHttpService: CoreHttpService,  private SpinnerService: NgxSpinnerService,) { 
+    this.activatedRoute.params.subscribe(params => {
+        if(params.id){
+            this.getClinicDetails(params.id);
+        }      
+      });
+  }
 
   ngOnInit(): void {
     this.getStateList();
+  }
+
+  getClinicDetails(id){
+    this.SpinnerService.show();
+    this.coreHttpService.post('get-clinic-details', id).subscribe(response=> {
+        console.log(response);
+        this.SpinnerService.hide();
+        this.stateList = response.result;
+    },error=>{
+        this.SpinnerService.hide();
+        console.log(error)
+    }) 
   }
 
    /** Method to get state list */

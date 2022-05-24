@@ -13,28 +13,28 @@
       <li class="treeview" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
         <a href="#">
           <i class="fa fa-hospital-o"></i>
-          <span>Hub Management</span>
+          <span>Spoke Management</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
           <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <a routerLink="/admin/create-sub-hub"><i class="fa fa-circle-o"></i>Create Sub Hub</a>
+            <a routerLink="/admin/create-sub-hub"><i class="fa fa-circle-o"></i>Create Spoke</a>
           </li>
           <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <a routerLink="/admin/view-sub-hub"><i class="fa fa-circle-o"></i>View Sub Hub</a>
+            <a routerLink="/admin/view-sub-hub"><i class="fa fa-circle-o"></i>Update Spoke List</a>
           </li>
           <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <a routerLink="/admin/add-doctor"><i class="fa fa-circle-o"></i>Add Doctor</a>
+            <a routerLink="/admin/add-doctor"><i class="fa fa-circle-o"></i>Add Spoke Doctor</a>
           </li>
           <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <a routerLink="/admin/view-doctor"><i class="fa fa-circle-o"></i>View Doctor</a>
+            <a routerLink="/admin/view-doctor"><i class="fa fa-circle-o"></i>Update Doctor List</a>
           </li>
         </ul>
       </li>
       
-      <li class="treeview" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      <!-- <li class="treeview" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
         <a href="#">
           <i class="fa fa-wheelchair"></i>
           <span>Patient Management</span>
@@ -47,7 +47,7 @@
             <a routerLink="/admin/patient-list"><i class="fa fa-circle-o"></i>Patient List</a>
           </li>
         </ul>
-      </li>
+      </li> -->
       
     </ul>
   </section>

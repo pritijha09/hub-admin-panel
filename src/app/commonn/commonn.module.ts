@@ -21,20 +21,16 @@ import { PatientDetailsComponent } from './patient-management/patient-details/pa
 import { GrdFilterPipe } from './_pipe/grd-filter.pipe';
 
 
-
-
-
-
 @NgModule({
   declarations: [
     CommonnComponent,
     HomeComponent,
     CreateSubHubComponent,
     ViewSubHubComponent,
-    PatientListComponent,
     AddDoctorComponent,
     ViewDoctorComponent,
     PatientDetailsComponent,
+    PatientListComponent,
     GrdFilterPipe
     
   ],
@@ -60,11 +56,7 @@ import { GrdFilterPipe } from './_pipe/grd-filter.pipe';
     ReactiveFormsModule,
     NgxPaginationModule,
     FormsModule,
-    NgxDatatableModule,
-    
-    
-   
-    
+    NgxDatatableModule,  
   ],
   providers: [TitleCasePipe, LowerCasePipe, DatePipe]
 })

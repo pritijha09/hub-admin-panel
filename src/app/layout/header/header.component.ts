@@ -60,12 +60,12 @@ export class HeaderComponent implements OnInit {
 
     // If the route is dynamic route such as ':id', remove it
     const lastRoutePart = path.split('/').pop();
-    const isDynamicRoute = lastRoutePart.startsWith(':');
-    if (isDynamicRoute && !!route.snapshot) {
-      const paramName = lastRoutePart.split(':')[1];
-      path = path.replace(lastRoutePart, route.snapshot.params[paramName]);
-      label = route.snapshot.params[paramName];
-    }
+    // const isDynamicRoute = lastRoutePart.startsWith(':');
+    // if (isDynamicRoute && !!route.snapshot) {
+    //   const paramName = lastRoutePart.split(':')[1];
+    //   path = path.replace(lastRoutePart, route.snapshot.params[paramName]);
+    //   label = route.snapshot.params[paramName];
+    // }
     // console.log(path, url);
     //In the routeConfig the complete path is not available,
     //so we rebuild it each time

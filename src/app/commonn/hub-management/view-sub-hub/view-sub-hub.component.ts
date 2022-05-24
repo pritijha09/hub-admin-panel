@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CoreHttpService } from 'src/app/_services/coreHttpServices/core-http.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ClinicListModel } from 'src/app/_model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-sub-hub',
@@ -11,7 +12,7 @@ import { ClinicListModel } from 'src/app/_model';
 export class ViewSubHubComponent implements OnInit {
     public clinicList: ClinicListModel[] = [];
     public searchText : string;
-  constructor(private coreHttpService: CoreHttpService,  private spinnerService: NgxSpinnerService,) { }
+  constructor(private coreHttpService: CoreHttpService, private router: Router,  private spinnerService: NgxSpinnerService,) { }
 
   ngOnInit(): void {
     this.spinnerService.show();
@@ -26,4 +27,11 @@ export class ViewSubHubComponent implements OnInit {
     })
   }
 
+  goToPatientList(id){
+    this.router.navigate(["/admin/patient-list/" + id]);
+  }
+
+  updateClinicList(id){
+    this.router.navigate(["/admin/update-sub-hub/" + id]);
+  }
 }

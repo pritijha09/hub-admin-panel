@@ -43,35 +43,35 @@ export class AdminHomeComponent implements OnInit {
     // });
     // this.headerTitleService.setTitle(this.currentPageTitle);
 
-    this.getMocktestList();
+   // this.getMocktestList();
   }
 
-  getMocktestList() {
-    // let requestJson = {};
-    // requestJson = { status: 'all' };
-    this.apiURL = 'get-scheduled-live-test-list';
-    this.spinner.show();
+//   getMocktestList() {
+//     // let requestJson = {};
+//     // requestJson = { status: 'all' };
+//     this.apiURL = 'get-scheduled-live-test-list';
+//     this.spinner.show();
 
-    this.requestService.requestGetCreator(this.apiURL)
-      .subscribe(
-        (response: any) => {
-          this.spinner.hide();
-          if (response.response === 200) {
-            this.responseData = response.result;
-            // console.log(this.responseData);
-          } else {
-            this.messageType = response.messageType;
-            this.message = response.message;
-            this.requestService.messageBox(this.messageType, this.message);
-          }
-        },
-        (error: any) => {
-          this.spinner.hide();
-          // console.log(error);
-          this.requestService.messageBox('error', 'Something went wrong');
-        }
-      );
-  }
+//     this.requestService.requestGetCreator(this.apiURL)
+//       .subscribe(
+//         (response: any) => {
+//           this.spinner.hide();
+//           if (response.response === 200) {
+//             this.responseData = response.result;
+//             // console.log(this.responseData);
+//           } else {
+//             this.messageType = response.messageType;
+//             this.message = response.message;
+//             this.requestService.messageBox(this.messageType, this.message);
+//           }
+//         },
+//         (error: any) => {
+//           this.spinner.hide();
+//           // console.log(error);
+//           this.requestService.messageBox('error', 'Something went wrong');
+//         }
+//       );
+//   }
 
   onRoute(root: any) {
     localStorage.removeItem('editData');

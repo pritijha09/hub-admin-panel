@@ -1,22 +1,14 @@
 <section class="content">
-    <!-- <div class="row">
-        <a class="btn btn pull-right" style="margin-right: 12px;" routerLink="">
-            <i class="fa fa-download"></i> Smaple Download
-          </a>
-        <a class="btn btn pull-right" style="margin-right: 12px;" routerLink="">
-          <i class="fa fa-upload"></i> Upload Student Data
-        </a>
-          <a class="btn btn pull-right" style="margin-right: 12px;" routerLink="">
-            <i class="fa fa-plus"></i> Add Student
-          </a>
-      </div> -->
+        <!-- <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+                <p style="color: white">Please Wait. </p>  
+                </ngx-spinner> -->
     <div class="row">
         <div class="col-md-12">
             <div class="box box-danger">
                 <div class="box-header with-border">
                     <div class="col-md-6">
                         <div class="has-feedback">
-                            <input type="text" class="form-control input-md margin"
+                            <input type="text" class="form-control input-md margin" [(ngModel)]="searchText" name="search"
                                 placeholder="e.g. hospital name, location, patient name, patient id, dr. name">
                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
                         </div>
@@ -39,97 +31,27 @@
                                     <th>S.N</th>
                                     <th>Patient ID</th>
                                     <th>Patient Name</th>
-                                    <th>Hospital Name</th>
-                                    <th>MR Name</th>
+                                    <th>Mobile</th>
+                                    <th>Gender</th>
                                     <th>Doctor Name</th>
                                     <th>Type of Case</th>
+                                    <!-- <th>Address</th> -->
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
 
-                                <tr>
-                                    <td>1</td>
-                                    <td>121416</td>
-                                    <td>Sudhir</td>
-                                    <td>Metro Hospital</td>
-                                    <td>Amir</td>
-                                    <td>Dr. Jay Seth</td>
-                                    <td>Neurology</td>
+                                <tr *ngFor="let list of patientList | grdFilter: searchText; let index=index;">
+                                    <td>{{index+1}}</td>
+                                    <td>{{list.patient_registration}}</td>
+                                    <td>{{list.name}}</td>
+                                    <td>{{list.mobile}}</td>
+                                    <td>{{list.gender}}</td>
+                                    <td>{{list.doctor_name}}</td>
+                                    <td>{{list.case_type_name}}</td>
+                                    <!-- <td>{{list.patient_address}}</td> -->
                                     <td>
-                                      <a routerLink="/admin/patient-details">
-                                        <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="view">
-                                          <mat-icon><span class="material-icons">
-                                            visibility
-                                            </span></mat-icon>
-                                        </button>
-                                      </a>
-                                      </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>121416</td>
-                                    <td>Sudhir</td>
-                                    <td>Metro Hospital</td>
-                                    <td>Amir</td>
-                                    <td>Dr. Jay Seth</td>
-                                    <td>Neurology</td>
-                                    <td>
-                                      <a routerLink="/admin/patient-details">
-                                        <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="view">
-                                          <mat-icon><span class="material-icons">
-                                            visibility
-                                            </span></mat-icon>
-                                        </button>
-                                      </a>
-                                      </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>121416</td>
-                                    <td>Sudhir</td>
-                                    <td>Metro Hospital</td>
-                                    <td>Amir</td>
-                                    <td>Dr. Jay Seth</td>
-                                    <td>Neurology</td>
-                                    <td>
-                                      <a routerLink="/admin/patient-details">
-                                        <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="view">
-                                          <mat-icon><span class="material-icons">
-                                            visibility
-                                            </span></mat-icon>
-                                        </button>
-                                      </a>
-                                      </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>121416</td>
-                                    <td>Sudhir</td>
-                                    <td>Metro Hospital</td>
-                                    <td>Amir</td>
-                                    <td>Dr. Jay Seth</td>
-                                    <td>Neurology</td>
-                                    <td>
-                                      <a routerLink="/admin/patient-details">
-                                        <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="view">
-                                          <mat-icon><span class="material-icons">
-                                            visibility
-                                            </span></mat-icon>
-                                        </button>
-                                      </a>
-                                      </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>121416</td>
-                                    <td>Sudhir</td>
-                                    <td>Metro Hospital</td>
-                                    <td>Amir</td>
-                                    <td>Dr. Jay Seth</td>
-                                    <td>Neurology</td>
-                                    <td>
-                                      <a routerLink="/admin/patient-details">
+                                      <a (click)="getPatientDetails(list.id)">
                                         <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="view">
                                           <mat-icon><span class="material-icons">
                                             visibility

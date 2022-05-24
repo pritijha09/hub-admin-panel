@@ -45,8 +45,8 @@ const routes: Routes = [
       // canActivate: [AuthGuard],
       data: {
         // roles: [Role.Admin],
-        title: 'Create Sub Hub',
-        breadcrumb: 'Create Sub Hub'
+        title: 'Create Spoke',
+        breadcrumb: 'Create Spoke'
       }
     },
     {
@@ -55,10 +55,20 @@ const routes: Routes = [
       // canActivate: [AuthGuard],
       data: {
         // roles: [Role.Admin],
-        title: 'View Sub Hub',
-        breadcrumb: 'View Sub Hub'
+        title: 'Spoke List',
+        breadcrumb: 'Spoke List'
       }
     },
+    {
+        path: 'update-sub-hub/:id',
+        component: CreateSubHubComponent,
+        // canActivate: [AuthGuard],
+        data: {
+          // roles: [Role.Admin],
+          title: 'update-sub-hub',
+          breadcrumb: 'update-sub-hub'
+        }
+      },
     {
       path: 'add-doctor',
       component: AddDoctorComponent,
@@ -81,25 +91,25 @@ const routes: Routes = [
     },
     //----------------------------------patient-management-------------------//
     {
-      path: 'patient-list',
-      component: PatientListComponent,
-      // canActivate: [AuthGuard],
-      data: {
-        // roles: [Role.Admin],
-        title: 'Patient List',
-        breadcrumb: 'Patient List'
-      }
-    },
-    {
-      path: 'patient-details',
-      component: PatientDetailsComponent,
-      // canActivate: [AuthGuard],
-      data: {
-        // roles: [Role.Admin],
-        title: 'Patient Details',
-        breadcrumb: 'Patient Details'
-      }
-    },
+        path: 'patient-list/:id',
+        component: PatientListComponent,
+        // canActivate: [AuthGuard],
+        data: {
+          // roles: [Role.Admin],
+          title: 'Patient List',
+          breadcrumb: 'Patient List'
+        }
+      },
+      {
+        path: 'patient-details/:id',
+        component: PatientDetailsComponent,
+        // canActivate: [AuthGuard],
+        data: {
+          // roles: [Role.Admin],
+          title: 'Patient Details',
+          breadcrumb: 'Patient Details'
+        }
+      },
 
     
 

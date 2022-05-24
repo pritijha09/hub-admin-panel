@@ -1,893 +1,553 @@
 <section class="content">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="box box-danger">
+        <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+                <p style="color: white">Please Wait. </p>  
+                </ngx-spinner>
+ <div class="row">
+ <div class="col-md-12">
+ <div class="box box-danger">
 
-        <!--/.box-header-->
-        <div class="box-body">
-          <mat-tab-group>
-            <mat-tab label="Patient Summary">
-              <section class="content" style="margin-top:23px;">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Patient Information</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table table-bordered">
-                          <tbody>
-                            <tr>
-                              <!-- <th style="width: 10px">#</th>
-                            <th>Task</th>
-                            <th>Progress</th>
-                            <th style="width: 40px">Label</th> -->
-                            </tr>
-                            <tr>
-                              <th>Incident Date :</th>
-                              <td>26/07/2021 | 10.10 am</td>
-                              <th> PRF No. :</th>
-                              <td> 231223</td>
-                            </tr>
-                            <tr>
-                              <th>Call Attend by :</th>
-                              <td>Vinod Singh</td>
-                              <th> Case Type :</th>
-                              <td> Cardiac Arrest</td>
-                            </tr>
-                            <tr>
-                              <th>MR Dispatched by :</th>
-                              <td>Nakul</td>
-                              <th>Vehicle No. :</th>
-                              <td>DL3S1237</td>
-                            </tr>
-                            <tr>
-                              <th class="text-green">Attending MR's</th>
-                            </tr>
-
-                            <tr>
-                              <th>MR-1:</th>
-                              <td>Sudhir Singh</td>
-                              <th>MR-2 :</th>
-                              <td>Atul Singh</td>
-                            </tr>
-                            <tr>
-                              <th>Patient Name :</th>
-                              <td>Sanjay Singh</td>
-                              <th> Gender/Age :</th>
-                              <td> <span>Male,</span><span> 54</span></td>
-                            </tr>
-                            <tr>
-                              <th>UHID :</th>
-                              <td>0</td>
-                            </tr>
-                            <tr>
-                              <th>Caller No. :</th>
-                              <td>000 000 0000</td>
-                              <th>Patient Contact No. :</th>
-                              <td>000 000 0000</td>
-                            </tr>
-                            <tr>
-                              <th>Patient Address: </th>
-                              <td>B-246 Mayur Vihar 1, Delhi 96</td>
-                              <th>Landmark :</th>
-                              <td>Near Hanumaan Mandir</td>
-                            </tr>
-                            <tr>
-                              <th>Next to Kin/ Accompanied by: </th>
-                              <td>Minakshi</td>
-                              <th>Relationship with Patient:</th>
-                              <td>Daughter</td>
-                            </tr>
-                            <tr>
-                              <th>Presenting Complaints / Events Onset:</th>
-                              <td>Chest Pain</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
+ <!--/.box-header-->
+ <div class="box-body">
+ <mat-tab-group>
+ <mat-tab label="Patient Summary">
+ <section class="content" style="margin-top:23px;">
+ <div class="row">
+ <div class="col-md-6">
+ <div class="box">
+ <div class="box-header with-border">
+ <h3 class="box-title">Patient Details</h3>
+ </div>
+ <!-- /.box-header -->
+ <div class="box-body table-responsive">
+ <table class="table table-bordered">
+ <tbody>
+ <tr>
+ </tr>
+ <tr>
+ <th>Incident Date :</th>
+ <td>{{patientDetails.incident_time}}</td>
+ <th> Patient Name :</th>
+ <td>{{patientDetails.name}}</td>
+ </tr>
+ <tr>
+ <th>Patient Age :</th>
+ <td>{{patientDetails.age}}</td>
+ <th> Gender :</th>
+ <td> {{patientDetails.gender}}</td>
+ </tr>
+ <tr>
+ <th>Patient Contact No. :</th>
+ <td>{{patientDetails.mobile}}</td>
+ <th>Attendee Contact No. :</th>
+ <td>{{patientDetails.attendee_contact}}</td>
+ </tr>
+ <tr>
+ <th>Patient Address: </th>
+ <td>{{patientDetails.patient_address}}</td>
+ <th>Hospital :</th>
+ <td>{{patientDetails.attending_clinic_name}}</td>
+ </tr>
+ <tr>
+ <th>Attending Doctor: </th>
+ <td>{{patientDetails.doctor_name}}</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ <!-- /.box-body -->
+ </div>
 
 
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-md-6">
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Primary Survey</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table table-bordered">
-                          <tbody>
-                            <tr>
-                              <!-- <th style="width: 10px">#</th>
-                            <th>Task</th>
-                            <th>Progress</th>
-                            <th style="width: 40px">Label</th> -->
-                            </tr>
-                            <tr>
-                              <th>Airway :</th>
-                              <td><span class="fa fa-check text-green"></span> Occluded</td>
-                              <td><span class="fa fa-times-circle-o text-danger"></span> Clear</td>
-                              <td><span class="fa fa-times-circle-o text-danger"> </span> Noisy</td>
-                              <td><span class="fa fa-times-circle-o text-danger"> </span> C-Spine</td>
-                            </tr>
-                            <tr>
-                              <th>Breathing :</th>
-                              <td><span class="fa fa-check text-green"> </span> Normal</td>
-                              <td><span class="fa fa-times-circle-o text-danger"> </span> Abnormal</td>
-                              <td><span class="fa fa-times-circle-o text-danger"></span> Absent</td>
-                            </tr>
-                            <tr>
-                              <th>Pulse :</th>
-                              <td><span class="fa fa-check text-green"></span> Present</td>
-                              <td><span class="fa fa-times-circle-o text-danger"> </span> Regular</td>
-                              <td><span class="fa fa-times-circle-o text-danger"></span> Irregular</td>
-                              <td><span class="fa fa-times-circle-o text-danger"></span> Absent</td>
-                            </tr>
-                            <tr>
-                              <th>AVPU Scale :</th>
-                              <td><span class="fa fa-check text-green"> </span> Alert</td>
-                              <td><span class="fa fa-times-circle-o text-danger"> </span> Voice</td>
-                              <td><span class="fa fa-times-circle-o text-danger"> </span> Pain</td>
-                              <td><span class="fa fa-times-circle-o text-danger"> </span> Unresponsive</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Action Taken</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table">
-                          <tbody>
-                            <tr>
-                              <!-- <th style="width: 10px">#</th>
-                            <th>Task</th>
-                            <th>Progress</th>
-                            <th style="width: 40px">Label</th> -->
-                            </tr>
-                            <tr>
-                              <th>Action Taken :</th>
-                              <td> Not Available</td>
-                            </tr>
+ </div>
+ <!-- /.col -->
+ <div class="col-md-6">
+ <div class="box">
+ <div class="box-header with-border">
+ <h3 class="box-title">Patient Medical History</h3>
+ </div>
+ <!-- /.box-header -->
+ <!-- box-body -->
+ <div class="box-body table-responsive">
+ <table class="table table-bordered">
+ <tbody>
+ <tr>
+ <th>Chest Pain:</th>
+ <td>{{patientMedicalHostory.chest_pain}}</td>
+ </tr>
+ <tr>
+ <th>Dyspnea Class:</th>
+ <td>{{patientMedicalHostory.dyspnea_class}}</td>
+ </tr>
+ <tr>
+ <th>Syncope:</th>
+ <td>{{patientMedicalHostory.syncope ==='1' ? 'Yes' : 'No' }}</td>
+ </tr>
+ <tr>
+ <th>Onset Symptoms Time :</th>
+ <td>{{patientMedicalHostory.onset_symptoms_time}}</td>
+ </tr>
+ <tr>
+ <th>Past Cardiac History :</th>
+ <td>{{patientMedicalHostory.past_cardiac_case_history_name}}</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ <!-- /.box-body -->
+ </div>
+ </div>
+ </div>
+ <!--/row/-->
+ 
+ <!--Initial Medical History-->
+ <div class="row">
+ <div class="col-md-6">
+ <div class="box">
+ <div class="box-header with-border">
+ <h3 class="box-title">Initial Medical History</h3>
+ </div>
+ <!-- /.box-header -->
+ <div class="box-body table-responsive">
+ <table class="table table-bordered">
+ <tbody>
+ <tr>
+ <th>Stable:</th>
+ <td>{{initialMedicalHistory.stable == '1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>HF:</th>
+ <td>{{initialMedicalHistory.hf == '1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>Shock:</th>
+ <td>{{initialMedicalHistory.shock == '1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>Hypotension :</th>
+ <td>{{initialMedicalHistory.hypotension}}</td>
+ </tr>
+ <tr>
+ <th>Pul. Edema :</th>
+ <td>{{initialMedicalHistory.pulmonary_edem}}</td>
+ </tr>
+ <tr>
+ <th>Pulse :</th>
+ <td>{{initialMedicalHistory.pulse}} </td>
+ </tr>
+ <tr>
+ <th>BP :</th>
+ <td>{{initialMedicalHistory.bp}} mmHg</td>
+ </tr>
+ <tr>
+ <th>SPO2 :</th>
+ <td>{{initialMedicalHistory.spo2}}%</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ <!-- /.box-body -->
+ </div>
+ </div>
+ <!--/remark---->
+ <div class="col-md-6">
+ <!--pupil-->
+ <div class="box">
+ <div class="box-header with-border">
+ <h3 class="box-title">Medication Details</h3>
+ </div>
+ <!-- /.box-header -->
+ <div class="box-body table-responsive">
+ <table class="table table-bordered">
+ <tbody>
+ <tr>
+ <th>Drugs Name:</th>
+ <td>Asprine, abc</td>
+ </tr>
+ <tr>
+ <th>Route:</th>
+ <td>Sublingual</td>
+ </tr>
+ <tr>
+ <th>Drug Time:</th>
+ <td>12-05-2022, 09:00 am</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ <!-- /.box-body -->
+ </div>
+ </div>
+ </div>
+ 
+ 
+ <!--Time-->
+ <div class="row">
+ <div class="col-md-6">
+ <div class="box">
+ <div class="box-header with-border">
+ <h3 class="box-title">Diagnosis & Outcome</h3>
+ </div>
+ <!-- /.box-header -->
+ <div class="box-body table-responsive" *ngIf="!diagnosisAndOutcome">
+     <h3>Data not available!</h3>
+ </div>
+ <div class="box-body table-responsive" *ngIf="diagnosisAndOutcome">
+ <table class="table table-bordered">
+ <tbody>
+ <tr>
+ <th>Diagnosis:</th>
+ <td>{{diagnosisAndOutcome.diagnosis}}</td>
+ </tr>
+ <tr>
+ <th>Other Diagnosis:</th>
+ <td>{{diagnosisAndOutcome.other_diagnosis=='1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>Thrombolysis Done:</th>
+ <td>{{diagnosisAndOutcome.is_thrombolysis_done}}</td>
+ </tr>
+ <tr>
+ <th>Reason For not done :</th>
+ <td>{{diagnosisAndOutcome.reason_for_not_tnk}}</td>
+ </tr>
+ <tr>
+ <th>Success :</th>
+ <td>{{diagnosisAndOutcome.successful=='1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>Unsuccess :</th>
+ <td>{{diagnosisAndOutcome.unsuccessful =='1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>Chest pain resolution :</th>
+ <td>{{diagnosisAndOutcome.chest_pain_resolution}}</td>
+ </tr>
+ <tr>
+ <th>If partial :</th>
+ <td>{{diagnosisAndOutcome.if_partial}}</td>
+ </tr>
+ <tr>
+ <th>Cardiac Arrest :</th>
+ <td>{{diagnosisAndOutcome.cardiac_arrest =='1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>Cardiac Arrest Time :</th>
+ <td>{{diagnosisAndOutcome.cardiac_arrest_time}}</td>
+ </tr>
+ <tr>
+ <th>VF :</th>
+ <td>{{diagnosisAndOutcome.vf =='1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>CHB:</th>
+ <td>{{diagnosisAndOutcome.chb =='1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>VPC :</th>
+ <td>{{diagnosisAndOutcome.vpc =='1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>Other Blocks :</th>
+ <td>{{diagnosisAndOutcome.others_blocks}}</td>
+ </tr>
+ <tr>
+ <th>CPR Performed :</th>
+ <td>{{diagnosisAndOutcome.cpr_performed =='1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>CPR Started Time :</th>
+ <td>{{diagnosisAndOutcome.cpr_started_time}}</td>
+ </tr>
+ <tr>
+ <th>Shock Advised :</th>
+ <td>{{diagnosisAndOutcome.shock_advised =='1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>Frequency :</th>
+ <td>{{diagnosisAndOutcome.frequency}}</td>
+ </tr>
+ <tr>
+ <th>No. of Shocks :</th>
+ <td>{{diagnosisAndOutcome.no_ofshocks}}</td>
+ </tr>
+ <tr>
+ <th>Discharged :</th>
+ <td>{{diagnosisAndOutcome.discharged =='1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>Death :</th>
+ <td>{{diagnosisAndOutcome.death =='1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>Refferels to Higher Center :</th>
+ <td>{{diagnosisAndOutcome.referred =='1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>Transferred Time :</th>
+ <td>{{diagnosisAndOutcome.transfer_time}}</td>
+ </tr>
+ <tr>
+ <th>Hub :</th>
+ <td>{{diagnosisAndOutcome.hub =='1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>Other Hospital :</th>
+ <td>{{diagnosisAndOutcome.other_hospital =='1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>Ed :</th>
+ <td>{{diagnosisAndOutcome.ed =='1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>Cathlab :</th>
+ <td>{{diagnosisAndOutcome.cathlab =='1' ? 'Yes' : 'No'}}</td>
+ </tr>
+ <tr>
+ <th>Date & Time :</th>
+ <td>{{diagnosisAndOutcome.transfer_time}}</td>
+ </tr>
+ <tr>
+ <th>Referring Doctor Note :</th>
+ <td>{{diagnosisAndOutcome.ref_doc_note}}</td>
+ </tr>
+ <tr>
+ <th>Reason :</th>
+ <td>{{diagnosisAndOutcome.reason}}</td>
+ </tr>
+ <tr>
+ <th>Reason If Not :</th>
+ <td>{{diagnosisAndOutcome.reason_if_not}}</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ <!-- /.box-body -->
+ </div>
+ </div>
+ <!--/remark---->
+ <div class="col-md-6">
+ <!--Thrombolysis-->
+ <div class="box">
+ <div class="box-header with-border">
+ <h3 class="box-title">Medication For TNK</h3>
+ </div>
+ <!-- /.box-header -->
+ <div class="box-body table-responsive">
+ <table class="table table-bordered">
+ <tbody>
+ <tr>
+ <th>Drugs Name:</th>
+ <td>Asprine, abc</td>
+ </tr>
+ <tr>
+ <th>Route:</th>
+ <td>Sublingual</td>
+ </tr>
+ <tr>
+ <th>Drug Time:</th>
+ <td>12-05-2022, 09:00 am</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ <!-- /.box-body -->
+ </div>
+ <div class="box">
+ <!-- <div class="box-header with-border">
+ <h3 class="box-title">Consent for Thrombolysis</h3>
+ </div> -->
+ <!-- /.box-header -->
+ <div class="box-body table-responsive">
+ <table class="table table-bordered">
+ <tbody>
+ <tr>
+ <th>Drugs Name:</th>
+ <td>Asprine, abc</td>
+ </tr>
+ <tr>
+ <th>Route:</th>
+ <td>Sublingual</td>
+ </tr>
+ <tr>
+ <th>Drug Time:</th>
+ <td>12-05-2022, 09:00 am</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ <!-- /.box-body -->
+ </div>
+ </div>
+ </div>
+ 
+ </section>
+ </mat-tab>
+ <!--patient summary-->
+ <mat-tab label="ECG Report">
+ <section class="content" style="margin-top:23px;">
+ <div class="row">
+ <div class="col-md-6">
+ <div class="box">
+ <div class="box-header with-border">
+ <h3 class="box-title">ECG Before TNK</h3>
+ </div>
+ <!-- /.box-header -->
+ <div class="box-body" *ngFor="let list of ecgReport">
+ <div class="direct-chat-info clearfix">
+ <span class="direct-chat-name pull-left">Date & Time</span>
+ <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+ </div>
+ 
+ <img class="img-responsive" [src]="list.egc_url" alt="ecg-report">
+ </div>
+ <!-- /.box-body -->
+ </div>
+ </div>
+ <div class="col-md-6">
+ <div class="box">
+ <div class="box-header with-border">
+ <h3 class="box-title">ECG After TNK</h3>
+ </div>
+ <!-- /.box-header -->
+ <div class="box-body">
+ <div class="direct-chat-info clearfix">
+ <span class="direct-chat-name pull-left">Date & Time</span>
+ <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+ </div>
+ <img class="img-responsive" src="/assets/images/no-image.png" alt="ecg-report">
+ </div>
+ <!-- /.box-body -->
+ </div>
+ </div>
+ </div>
+ </section> 
+ </mat-tab>
 
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-
-                    </div>
-                    <!-- /.box -->
-                  </div>
-                </div>
-                <!--/row/-->
-                <!--secondary Survey--------------------------->
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Secondary Survey</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table table-bordered">
-                          <tbody>
-                            <tr>
-                              <th>Time</th>
-                              <th>Temp</th>
-                              <th>Pulse</th>
-                              <th>RR</th>
-                              <th>BP</th>
-                              <th>SPO2</th>
-                              <th>GRBS</th>
-                              <th>Pain Scale (0-10)</th>
-                              <th>Capillary Refill</th>
-                            </tr>
-                            <tr>
-                              <td>26/07/2021 10.10 am</td>
-                              <td>95 F</td>
-                              <td> 80 bpm</td>
-                              <td> 00 bpm mm/Hg</td>
-                              <td> 00/00</td>
-                              <td> 00% mg/dl</td>
-                              <td> 00</td>
-                              <td> 0</td>
-                              <td> >2 sec.</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
-                  </div>
-                </div>
-                <!--Cardiologist Remark-->
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Cardiologist Remark</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table table-bordered">
-                          <tbody>
-                            <tr>
-                              <th>S.No.</th>
-                              <th>ECG Taken Time</th>
-                              <th>Cardiologist Remarks</th>
-                              <th>Cardiologist Name</th>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>26/07/2021 10.10 am</td>
-                              <td> Test</td>
-                              <td> Harish Singh</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
-                  </div>
-                  <!--/remark---->
-                  <div class="col-md-6">
-                    <!--pupil-->
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Pupils</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table table-bordered">
-                          <tbody>
-                            <tr>
-                              <th>S.No.</th>
-                              <th>Time</th>
-                              <th>Reaction(Y/N)-R</th>
-                              <th>Reaction(Y/N)-L</th>
-                              <th>Size (N/C/D)</th>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>26/07/2021 10.10 am</td>
-                              <td> No</td>
-                              <td> No</td>
-                              <td> Dialated</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
-                  </div>
-                </div>
-                <!--Doctor Remarks--------------------------->
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Doctor Remarks</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table table-bordered">
-                          <tbody>
-                            <tr>
-                              <th>S.No.</th>
-                              <th>Lead Type</th>
-                              <th>ECG Time</th>
-                              <th>Rhythm</th>
-                              <th>Protocols</th>
-                              <th>Repeat ECG Time</th>
-                              <th>Transmitted</th>
-                              <th>Advice from Dispatch</th>
-                              <th>Intervention</th>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>----</td>
-                              <td>26/07/2021 10.10 am</td>
-                              <td>--</td>
-                              <td>--</td>
-                              <td>--</td>
-                              <td>--</td>
-                              <td>--</td>
-                              <td>--</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
-                  </div>
-                </div>
-                <!--Medication Fluids-->
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Medication Fluids</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table table-bordered">
-                          <tbody>
-                            <tr>
-                              <th>S.No.</th>
-                              <th>Time</th>
-                              <th>Drugs/Dose</th>
-                              <th>Route</th>
-                              <th>Medication History</th>
-                              <th>Medication History Duraion</th>
-                              <th>MR-1 Sign</th>
-                              <th>MR-2 Sign</th>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>26/07/2021 10.10 am</td>
-                              <td>--</td>
-                              <td>--</td>
-                              <td>--</td>
-                              <td>--</td>
-                              <td>--</td>
-                              <td>--</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
-                  </div>
-                  <!--/remark---->
-                  <div class="col-md-6">
-                    <!--pupil-->
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Cardiac Arrest</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table table-bordered">
-                          <tbody>
-                            <tr>
-                              <th>Cardiac Arrest:</th>
-                              <td><span class="fa fa-check text-green"></span> Yes</td>
-                              <td><span class="fa fa-times-circle-o text-danger"></span> --</td>
-                            </tr>
-                            <tr>
-                              <th>Time of Arrest :</th>
-                              <td> 26/07/2021 10.10 am</td>
-                            </tr>
-                            <tr>
-                              <th>Initial Rhythm :</th>
-                              <td>Assystole</td>
-                            </tr>
-                            <tr>
-                              <th>CPR Performed :</th>
-                              <td><span class="fa fa-check text-green"></span> Yes</td>
-                              <td><span class="fa fa-times-circle-o text-danger"></span> --</td>
-                            </tr>
-                            <tr>
-                              <th>No. of Shocks :</th>
-                              <td> 0</td>
-                            </tr>
-                            <tr>
-                              <th>Time Resus, Creased at :</th>
-                              <td> Not Available</td>
-                            </tr>
-                            <tr>
-                              <th>CPR Stated Time :</th>
-                              <td> 26/07/2021 10.10 am</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
-                  </div>
-                </div>
-                <!--Time-->
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Time</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table table-bordered">
-                          <tbody>
-                            <tr>
-                              <th>En Route Timings</th>
-                              <th>Date & Time</th>
-                              <th>Odometer Details</th>
-                            </tr>
-                            <tr>
-                              <td>Call Connect to Cats Time</td>
-                              <td>Not Available</td>
-                              <td>Not Available</td>
-                            </tr>
-                            <tr>
-                              <td>Case Assign Time</td>
-                              <td>12-07-21 11.00 am</td>
-                              <td>--</td>
-                            </tr>
-                            <tr>
-                              <td>FR Start Time</td>
-                              <td>12-07-21 11.00 am</td>
-                              <td>13399</td>
-                            </tr>
-                            <tr>
-                              <td>FR Scene Arrival Time</td>
-                              <td>12-07-21 11.00 am</td>
-                              <td>99898</td>
-                            </tr>
-                            <tr>
-                              <td>CATS Scene Arrival time</td>
-                              <td>14-07-21 11.00 am</td>
-                              <td>99990</td>
-                            </tr>
-                            <tr>
-                              <td>Handover to CATS Time</td>
-                              <td>14-07-21 11.00 am</td>
-                              <td>68877</td>
-                            </tr>
-                            <tr>
-                              <td>FR Scene Departure Time</td>
-                              <td>14-07-21 11.00 am</td>
-                              <td>68877</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
-                  </div>
-                  <!--/remark---->
-                  <div class="col-md-6">
-                    <!--Thrombolysis-->
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Thrombolysis Quesstionnaire</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table table-bordered">
-                          <tbody>
-                            <tr>
-                              <th>Question :</th>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <th>Answer :</th>
-                              <td></td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Consent for Thrombolysis</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table table-bordered">
-                          <tbody>
-                            <tr>
-                              <th>Taken :</th>
-                              <td><input type="checkbox" id="chacked"  name=""></td>
-                              <th>Not Taken :</th>
-                              <td><input type="checkbox"  name=""></td>
-                              <th>Skipped :</th>
-                              <td><input type="checkbox"  name=""></td>
-                            </tr>
-                          
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
-                  </div>
-                </div>
-                <!--Statement of patient--------------------------->
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Statement of Patient / Gaurdian (whatever possible, witness details should be obtained)</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body">
-                        <div class="timeline-item">
-                          <span class="time pull-right text-muted">
-                            <i class="fa fa-clock-o "></i>
-                            12-08-21 | 12:05</span>
-                          <h3 class="timeline-header">Consent Type : <span class="text-sm"> General Consent</span></h3>
-                          <div class="timeline-body">
-                            I hereby consent and authorised phisicianand medical personnel to administer
-                            and perform medical examination, investigations, medical treatments, pre-hospital procedures,
-                            use of information for research purpose duringthe course of patient care be the deemed 
-                            advisory of necessary.
-                          </div>
-                          <div class="timeline-footer" style="padding-top:10px">
-                            <h3 class="timeline-header">Patient/Relative Signature : 
-                              <span class="text-md"> <input type="text"></span></h3>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
-                  </div>
-                </div>
-                <!--history --allergies--time-->
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">History</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table table-bordered">
-                          <tbody>
-                            <tr>
-                              <th>Present Complaint: </th>
-                              <td>others, cardiac arrest</td>
-                            </tr>
-                            <tr>
-                              <th>Past Medical/ Surgical History</th>
-                              <td>6-DM, HTN </td>
-                            </tr>
-                            <tr>
-                              <th>Past Cardiac:</th>
-                              <td>other, PTCA</td>
-                            </tr>
-                            <tr>
-                              <th>Test & Report :</th>
-                              <td>Null</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
-                  </div>
-                  <!--/history---->
-                  <div class="col-md-4">
-                    <!--allergies-->
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Allergies</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table table-bordered">
-                          <tbody>
-                            
-                            <tr>
-                              <td>Not Known</td>
-                              
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <!--time-->
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Time</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table table-bordered">
-                          <tbody>
-                            <tr>
-                              <th>Time:</th>
-                              <td> HH:MM:SS</td>
-                            </tr>
-                            <tr>
-                              <th>Last Meal:</th>
-                              <td> 12-08-21 12:02:00</td>
-                            </tr>
-                            <tr>
-                              <th>Chest Pain Onset:</th>
-                              <td> 12-08-21 12:02:00</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
-                  </div>
-                </div>
-
-                <!--assessment-->
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Scene Assessment</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table table-bordered">
-                          <tbody>
-                            <tr>
-                              <th>Scene Assessment :</th>
-                              <td><span><input type="checkbox"></span> Home</td>
-                              <td><span><input type="checkbox"></span> Work</td>
-                              <td><span><input type="checkbox"></span> Public</td>
-                              <td><span><input type="checkbox"></span> Others</td>
-                            </tr>
-                            <tr>
-                              <th>Others :</th>
-                              <td>--</td>
-                            </tr>
-                            <tr>
-                              <th>Drugs? :</th>
-                              <td><span><input type="checkbox"></span> Yes</td>
-                              <td><span><input type="checkbox"></span> No</td>
-                            </tr>
-                            <tr>
-                              <th>vomiting? :</th>
-                              <td><span><input type="checkbox"></span> Yes</td>
-                              <td><span><input type="checkbox"></span> No</td>
-                            </tr>
-                            <tr>
-                              <th>Chest pain? :</th>
-                              <td><span><input type="checkbox"></span> Yes</td>
-                              <td><span><input type="checkbox"></span> No</td>
-                            </tr>
-                            <tr>
-                              <th>Restlessness? :</th>
-                              <td><span><input type="checkbox"></span> Yes</td>
-                              <td><span><input type="checkbox"></span> No</td>
-                            </tr>
-                            <tr>
-                              <th>Sweating? :</th>
-                              <td><span><input type="checkbox"></span> Yes</td>
-                              <td><span><input type="checkbox"></span> No</td>
-                            </tr>
-                            <tr>
-                              <th>Breathlessness? :</th>
-                              <td><span><input type="checkbox"></span> Yes</td>
-                              <td><span><input type="checkbox"></span> No</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
-                  </div>
-                  <!--/assessment---->
-                  <div class="col-md-6">
-                    <!--cannulation-->
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Cannulation</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table table-bordered">
-                          <tbody>
-                            <tr>
-                              <th>Others :</th>
-                              <td>--</td>
-                            </tr>
-                            <tr>
-                              <th>Is Cannulation Done? :</th>
-                              <td><span><input type="checkbox"></span> Yes</td>
-                              <td><span><input type="checkbox"></span> No</td>
-                            </tr>
-                            <tr>
-                              <th>Intravenous(IV) :</th>
-                              <td> Size</td>
-                            </tr>
-                            <tr>
-                              <th>Successful :</th>
-                              <td><span><input type="checkbox"></span> Yes</td>
-                              <td><span><input type="checkbox"></span> No</td>
-                            </tr>
-                            <tr>
-                              <th>Done by :</th>
-                              <td>--</td>
-                              <td>--</td>
-                            </tr>
-                            <tr>
-                              <th>No. of Attempts :</th>
-                              <td>--</td>
-                              <td>--</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
-                  </div>
-                </div>
-                 <!--patient handover-->
-                 <div class="row">
-                  <div class="col-md-12">
-                    <div class="box">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Patient Transferred & Handover to </h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body table-responsive">
-                        <table class="table table-bordered">
-                          <tbody>
-                            <tr>
-                              <th>Is Hospital Handover Required :</th>
-                              <td><span><input type="checkbox"></span> Yes</td>
-                              <td><span><input type="checkbox"></span> No</td>
-                            </tr>
-                            <tr>
-                              <th>Reason :</th>
-                              <td>Patient went by own vehicle rather than ambulance</td>
-                              <td><span><input type="checkbox"></span> AIIMS</td>
-                              <td><span><input type="checkbox"></span> Other</td>
-                            </tr>
-                            <tr>
-                              <th>If Other? :</th>
-                              <td><span><input type="checkbox"></span> CCU</td>
-                              <td><span><input type="checkbox"></span> Cath Lab</td>
-                              <td><span><input type="checkbox"></span> ED</td>
-                            </tr>
-                            <tr>
-                              <th>Receiving Nurse :</th>
-                              <td><h3 class="timeline-header"> 
-                                <span class="text-md"> Sign: <input type="text" style="height:60px"></span></h3></td>
-                                <th>Receiving Doctor :</th>
-                                <td><h3 class="timeline-header"> 
-                                  <span class="text-md"> Sign: <input type="text" style="height:60px"></span></h3></td>
-                            </tr>
-                            <tr>
-                              <th>Time :</th>
-                              <td>Not Available</td>
-                            </tr>
-                            <tr>
-                              <th>MR-1 :</th>
-                              <td><h3 class="timeline-header"> 
-                                <span class="text-md"> Sign: <input type="text" style="height:60px"></span></h3></td>
-                                <th>MR-2 :</th>
-                                <td><h3 class="timeline-header"> 
-                                  <span class="text-md"> Sign: <input type="text" style="height:60px"></span></h3></td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.box-body -->
-                    </div>
-                  </div>
-                  <!--/assessment---->
-                </div>
-              </section>
-            </mat-tab>
-            <!--patient summary-->
-            <mat-tab label="ECG Report "> ECG Report </mat-tab>
-
-            <mat-tab label="Doctor Prescription"> 
-               <!--Doctor Prescription"-->
-               <div class="row">
-                <div class="col-md-6">
-                  <div class="box">
-                    <div class="box-header with-border">
-                      <h3 class="box-title">Doctor Prescription</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body table-responsive">
-                      <table class="table table-bordered">
-                        <tbody>
-                          <tr>
-                            <th>Is it STEMI? :</th>
-                            <td><span><input type="radio"></span> Yes</td>
-                            <td><span><input type="radio"></span> No</td>
-                          </tr>
-                          <tr>
-                            <th>Others :</th>
-                            <td>--</td>
-                          </tr>
-                          <tr>
-                            <th>Drugs? :</th>
-                            <td><span><input type="checkbox"></span> Yes</td>
-                            <td><span><input type="checkbox"></span> No</td>
-                          </tr>
-                          <tr>
-                            <th>vomiting? :</th>
-                            <td><span><input type="checkbox"></span> Yes</td>
-                            <td><span><input type="checkbox"></span> No</td>
-                          </tr>
-                          <tr>
-                            <th>Chest pain? :</th>
-                            <td><span><input type="checkbox"></span> Yes</td>
-                            <td><span><input type="checkbox"></span> No</td>
-                          </tr>
-                          <tr>
-                            <th>Restlessness? :</th>
-                            <td><span><input type="checkbox"></span> Yes</td>
-                            <td><span><input type="checkbox"></span> No</td>
-                          </tr>
-                          <tr>
-                            <th>Sweating? :</th>
-                            <td><span><input type="checkbox"></span> Yes</td>
-                            <td><span><input type="checkbox"></span> No</td>
-                          </tr>
-                          <tr>
-                            <th>Breathlessness? :</th>
-                            <td><span><input type="checkbox"></span> Yes</td>
-                            <td><span><input type="checkbox"></span> No</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <!-- /.box-body -->
-                  </div>
-                </div>
-                <!--/Doctor Prescription"---->
-                <div class="col-md-6">
-                  <!--drug name-->
-                  <div class="box">
-                    <div class="box-header with-border">
-                      <h3 class="box-title">Cannulation</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body table-responsive">
-                      <table class="table table-bordered">
-                        <tbody>
-                          <tr>
-                            <th>Others :</th>
-                            <td>--</td>
-                          </tr>
-                          <tr>
-                            <th>Is Cannulation Done? :</th>
-                            <td><span><input type="checkbox"></span> Yes</td>
-                            <td><span><input type="checkbox"></span> No</td>
-                          </tr>
-                          <tr>
-                            <th>Intravenous(IV) :</th>
-                            <td> Size</td>
-                          </tr>
-                          <tr>
-                            <th>Successful :</th>
-                            <td><span><input type="checkbox"></span> Yes</td>
-                            <td><span><input type="checkbox"></span> No</td>
-                          </tr>
-                          <tr>
-                            <th>Done by :</th>
-                            <td>--</td>
-                            <td>--</td>
-                          </tr>
-                          <tr>
-                            <th>No. of Attempts :</th>
-                            <td>--</td>
-                            <td>--</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <!-- /.box-body -->
-                  </div>
-                </div>
-              </div>
-            </mat-tab>
-          </mat-tab-group>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- /.row -->
+ <mat-tab label="Doctor Prescription"> 
+ <section class="content" style="margin-top:23px;">
+ <!--Doctor Prescription"-->
+ <div class="row">
+ <div class="col-md-6">
+ <div class="box">
+ <div class="box-header with-border">
+ <h3 class="box-title">Doctor Entry</h3>
+ </div>
+ <!-- /.box-header -->
+ <div class="box-body table-responsive">
+ <table class="table table-bordered">
+ <tbody>
+ <tr>
+ <th>Is it STEMI? :</th>
+ <td><span><input type="radio"></span> Yes</td>
+ <td><span><input type="radio"></span> No</td>
+ </tr>
+ <tr>
+ <th>ASMI :</th>
+ <td><span><input type="radio"></span> Yes</td>
+ <td><span><input type="radio"></span> No</td>
+ </tr>
+ <tr>
+ <th>ALMI :</th>
+ <td><span><input type="checkbox"></span> Yes</td>
+ <td><span><input type="checkbox"></span> No</td>
+ </tr>
+ <tr>
+ <th>Anterior Wall :</th>
+ <td><span><input type="checkbox"></span> Yes</td>
+ <td><span><input type="checkbox"></span> No</td>
+ </tr>
+ <tr>
+ <th>IWMI :</th>
+ <td><span><input type="checkbox"></span> Yes</td>
+ <td><span><input type="checkbox"></span> No</td>
+ </tr>
+ <tr>
+ <th>Thrombolysis Indicated :</th>
+ <td><span><input type="checkbox"></span> Yes</td>
+ <td><span><input type="checkbox"></span> No</td>
+ </tr>
+ <tr>
+ <th>Other Finding in ECG :</th>
+ <td><span><input type="checkbox"></span> Yes</td>
+ <td><span><input type="checkbox"></span> No</td>
+ </tr>
+ <tr>
+ <th>Tachycardia :</th>
+ <td><span><input type="checkbox"></span> Yes</td>
+ <td><span><input type="checkbox"></span> No</td>
+ </tr>
+ <tr>
+ <th>Bradyarrhythmia :</th>
+ <td><span><input type="checkbox"></span> Yes</td>
+ <td><span><input type="checkbox"></span> No</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ <!-- /.box-body -->
+ </div>
+ </div>
+ <!--/Doctor Prescription"---->
+ <div class="col-md-6">
+ <!--drug name-->
+ <div class="box">
+ <div class="box-header with-border">
+ <h3 class="box-title">Drugs Name</h3>
+ </div>
+ <!-- /.box-header -->
+ <div class="box-body table-responsive" *ngIf="medicinePrecribed.length == 0">
+     <h3>Data not available!</h3>
+ </div>
+ <div class="box-body table-responsive" *ngIf="medicinePrecribed.length>0">
+ <table class="table table-bordered">
+ <tbody>
+ <tr *ngFor="let list of medicinePrecribed; let index=index">
+ <td>{{index+1}}.</td>
+ <td>{{list.name}}</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ <!-- /.box-body -->
+ </div>
+ </div>
+ </div>
+ <!--Statement of patient--------------------------->
+ <div class="row">
+ <div class="col-md-12">
+ <div class="box">
+ <div class="box-header with-border">
+ <h3 class="box-title">Doctor Signature</h3>
+ </div>
+ <!-- /.box-header -->
+ <div class="box-body">
+ <div class="timeline-item">
+ <!-- <span class="time pull-right text-muted">
+ <i class="fa fa-clock-o "></i>
+ 12-08-21 | 12:05</span> -->
+ <h3 class="timeline-header">Doctor Name: <span class="timeline-header"> Minakshi</span></h3>
+ <!-- <div class="timeline-body">
+ I hereby consent and authorised phisicianand medical personnel to administer
+ and perform medical examination, investigations, medical treatments, pre-hospital procedures,
+ use of information for research purpose duringthe course of patient care be the deemed 
+ advisory of necessary.
+ </div> -->
+ <div class="timeline-footer" style="padding-top:10px">
+ <h3 class="timeline-header">Signature : 
+ <span class="text-md"> <input type="text" style="height:60px"></span></h3>
+ </div>
+ </div>
+ </div>
+ <!-- /.box-body -->
+ </div>
+ </div>
+ </div>
+ </section>
+ </mat-tab>
+ </mat-tab-group>
+ </div>
+ </div>
+ </div>
+ </div>
+ <!-- /.row -->
 </section>
