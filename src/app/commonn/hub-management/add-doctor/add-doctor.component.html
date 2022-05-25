@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-3">
+                            <!-- <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="publisher_name">Hospital Name<span class="text-red">*</span></label>
                                     <input type="text" class="form-control" [(ngModel)]="addDoctor.hospital_name" name="hospitalName" #hospitalName="ngModel" required
@@ -61,8 +61,8 @@
                                             <p *ngIf="hospitalName.errors?.required">Hospital name is required.</p>
                                           </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
+                            </div> -->
+                            <!-- <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Department Name</label>
                                     <select class="form-control" name="department_name" #department_name="ngModel" [(ngModel)]="addDoctor.department_id" (change)="getSelectedDepartment($event.target.value)" required>
@@ -70,8 +70,8 @@
                                         <option *ngFor="let list of departmentList" [value]="list.id">{{list.name}}</option>        
                                     </select>
                                   </div>
-                            </div>
-                            <div class="col-md-3">
+                            </div> -->
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>State</label>
                                     <select class="form-control" name="state" [(ngModel)]="addDoctor.state_id" #state="ngModel" (change)="getSelectedState()">
@@ -79,7 +79,7 @@
                                     </select>
                                   </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>District</label>
                                     <select class="form-control" 
