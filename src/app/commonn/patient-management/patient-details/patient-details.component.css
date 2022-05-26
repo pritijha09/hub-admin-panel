@@ -17,3 +17,8 @@
     background: #116466 !important;
     border-radius: 4px;
 }
+
+input:disabled {
+    background-color: none !important;
+    border-color: none !important;
+}

@@ -38,6 +38,71 @@ export class PatientDetails{
     updated_at: string;
 }
 
+export class PatientAttendeeConsent {
+    clinic_id: string;
+consent_time: string;
+created_at: string;
+created_by: string;
+description: string;
+doctor_id: string;
+general_consent: string;
+hub_id: string;
+id: number;
+is_agree: string;
+is_english: string;
+patient_registration: string;
+signature: string;
+signature_text: string;
+signature_url: string;;
+updated_at: string;
+user_id: string;
+}
+
+export class DoctorPrecription{
+    almi: string;
+anterior_wall: string;
+asmi: string;
+bradyarrhythmia: string;
+bradyarrhythmia_other: string;
+clinic_id: string;
+created_at: string;
+doctor_id: string;
+doctor_signature: string;
+doctor_signature_url: string;
+hub_id: string;
+id: number;
+is_stemi: string;
+iwmi: string;
+medication_id: string;
+medication_name: string;
+nstemi: string;
+patient_registration: string;
+prescription_detail: string;
+st_dep: string;
+t_wave_inversion: string;
+tachycardia: string;
+thrombolysis_indicated: string;
+updated_at: string;
+user_id: string;
+}
+
+export class MedicationDetails{
+    clinic_id: string;
+created_at: string;
+doctor_id: string;
+grugs_given_time: string;
+hub_id: string;
+id: number;
+medication: string;
+medication_id: string;
+past_medication_history: string;
+patient_registration:string;
+route: string;
+route_id: string;
+updated_at: string;
+user_id: string;
+}
+
 export class PatientMedicalHostory{
     "id": number;
     "user_id": string;

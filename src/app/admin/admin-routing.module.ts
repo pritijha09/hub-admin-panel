@@ -91,6 +91,16 @@ const routes: Routes = [
     },
     //----------------------------------patient-management-------------------//
     {
+        path: 'all-patient-list',
+        component: PatientListComponent,
+        // canActivate: [AuthGuard],
+        data: {
+          // roles: [Role.Admin],
+          title: 'All Patient List',
+          breadcrumb: 'All Patient List'
+        }
+      },
+    {
         path: 'patient-list/:id',
         component: PatientListComponent,
         // canActivate: [AuthGuard],

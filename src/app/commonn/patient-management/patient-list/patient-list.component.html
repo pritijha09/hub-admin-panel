@@ -40,7 +40,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <tr *ngFor="let list of patientList | grdFilter: searchText; let index=index;">
                                     <td>{{index+1}}</td>
                                     <td>{{list.patient_registration}}</td>
@@ -51,7 +50,7 @@
                                     <td>{{list.case_type_name}}</td>
                                     <!-- <td>{{list.patient_address}}</td> -->
                                     <td>
-                                      <a (click)="getPatientDetails(list.id)">
+                                      <a (click)="getPatientDetails(list.user_id)">
                                         <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="view">
                                           <mat-icon><span class="material-icons">
                                             visibility

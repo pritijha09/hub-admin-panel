@@ -50,7 +50,6 @@ public departmentList = [{id: '1', name: 'Radiology Department (X-ray)'},
    getStateList() {
     this.SpinnerService.show();
     this.coreHttpService.get('get-state-list').subscribe(response=> {
-        console.log(response);
         this.SpinnerService.hide();
         this.stateList = response.result;
     },error=>{
@@ -78,6 +77,7 @@ public departmentList = [{id: '1', name: 'Radiology Department (X-ray)'},
 
     /** Method to save new doctor */
     onSubmit(addClinicform: NgForm) {
+        let email = this.addClinic.email;
         let userName= this.addClinic.mobile;
         let password = this.addClinic.password;
         this.SpinnerService.show();
@@ -85,7 +85,7 @@ public departmentList = [{id: '1', name: 'Radiology Department (X-ray)'},
             if(res.response === 200){
                 this.SpinnerService.hide();
                 addClinicform.reset();
-                Swal.fire('Thank you...', `Username: ${userName}, Password: ${password}`, 'success') 
+                Swal.fire('Thank you...', `Email: ${email}, Password: ${password}`, 'success') 
             }
         }, error=> {
             console.log(error)

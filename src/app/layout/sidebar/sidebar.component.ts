@@ -15,4 +15,8 @@ export class SidebarComponent implements OnInit {
       trees.tree();
     });
   }
+
+  downloadPatientData(){
+      console.log("download")
+  }
 }

@@ -50,6 +50,10 @@
  <tr>
  <th>Attending Doctor: </th>
  <td>{{patientDetails.doctor_name}}</td>
+ <th>Attendee Signature :</th>
+ <td>
+     <img [src]="attendeeSignature" style="height: 3rem;
+     width: 8rem;" alt="signature"></td>
  </tr>
  </tbody>
  </table>
@@ -63,7 +67,7 @@
  <div class="col-md-6">
  <div class="box">
  <div class="box-header with-border">
- <h3 class="box-title">Patient Medical History</h3>
+ <h3 class="box-title">Past Patient Medical History</h3>
  </div>
  <!-- /.box-header -->
  <!-- box-body -->
@@ -72,7 +76,7 @@
  <tbody>
  <tr>
  <th>Chest Pain:</th>
- <td>{{patientMedicalHostory.chest_pain}}</td>
+ <td>{{patientMedicalHostory.chest_pain ==='1' ? 'Yes' : 'No'}}</td>
  </tr>
  <tr>
  <th>Dyspnea Class:</th>
@@ -104,7 +108,7 @@
  <div class="col-md-6">
  <div class="box">
  <div class="box-header with-border">
- <h3 class="box-title">Initial Medical History</h3>
+ <h3 class="box-title">Initial clinical Medical History</h3>
  </div>
  <!-- /.box-header -->
  <div class="box-body table-responsive">
@@ -153,23 +157,23 @@
  <!--pupil-->
  <div class="box">
  <div class="box-header with-border">
- <h3 class="box-title">Medication Details</h3>
+ <h3 class="box-title">Patient Diagnosis Medication Details</h3>
  </div>
  <!-- /.box-header -->
- <div class="box-body table-responsive">
+ <div class="box-body table-responsive" *ngFor="let list of medicationDtails">
  <table class="table table-bordered">
  <tbody>
  <tr>
  <th>Drugs Name:</th>
- <td>Asprine, abc</td>
+ <td>{{list.medication}}</td>
  </tr>
  <tr>
  <th>Route:</th>
- <td>Sublingual</td>
+ <td>{{list.route}}</td>
  </tr>
  <tr>
  <th>Drug Time:</th>
- <td>12-05-2022, 09:00 am</td>
+ <td>{{list.grugs_given_time}}</td>
  </tr>
  </tbody>
  </table>
@@ -332,24 +336,27 @@
  <h3 class="box-title">Medication For TNK</h3>
  </div>
  <!-- /.box-header -->
- <div class="box-body table-responsive">
- <table class="table table-bordered">
- <tbody>
- <tr>
- <th>Drugs Name:</th>
- <td>Asprine, abc</td>
- </tr>
- <tr>
- <th>Route:</th>
- <td>Sublingual</td>
- </tr>
- <tr>
- <th>Drug Time:</th>
- <td>12-05-2022, 09:00 am</td>
- </tr>
- </tbody>
- </table>
- </div>
+ <ng-container *ngIf="medicationForTNK.length>0">
+        <div class="box-body table-responsive" *ngFor="let list of medicationForTNK">
+                <table class="table table-bordered">
+                <tbody>
+                <tr>
+                <th>Drugs Name:</th>
+                <td>{{list.medication}}</td>
+                </tr>
+                <tr>
+                <th>Route:</th>
+                <td>{{list.route}}</td>
+                </tr>
+                <tr>
+                <th>Drug Time:</th>
+                <td>{{list.grugs_given_time}}</td>
+                </tr>
+                </tbody>
+                </table>
+                </div>
+ </ng-container>
+
  <!-- /.box-body -->
  </div>
  <div class="box">
@@ -357,24 +364,7 @@
  <h3 class="box-title">Consent for Thrombolysis</h3>
  </div> -->
  <!-- /.box-header -->
- <div class="box-body table-responsive">
- <table class="table table-bordered">
- <tbody>
- <tr>
- <th>Drugs Name:</th>
- <td>Asprine, abc</td>
- </tr>
- <tr>
- <th>Route:</th>
- <td>Sublingual</td>
- </tr>
- <tr>
- <th>Drug Time:</th>
- <td>12-05-2022, 09:00 am</td>
- </tr>
- </tbody>
- </table>
- </div>
+ 
  <!-- /.box-body -->
  </div>
  </div>
@@ -392,13 +382,13 @@
  <h3 class="box-title">ECG Before TNK</h3>
  </div>
  <!-- /.box-header -->
- <div class="box-body" *ngFor="let list of ecgReport">
+ <div class="box-body">
  <div class="direct-chat-info clearfix">
  <span class="direct-chat-name pull-left">Date & Time</span>
- <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+ <span class="direct-chat-timestamp pull-right">{{ecgReportbefore.ecg_date}}</span>
  </div>
  
- <img class="img-responsive" [src]="list.egc_url" alt="ecg-report">
+ <img class="img-responsive" [src]="ecgReportbefore.egc_url" alt="ecg-report">
  </div>
  <!-- /.box-body -->
  </div>
@@ -409,12 +399,12 @@
  <h3 class="box-title">ECG After TNK</h3>
  </div>
  <!-- /.box-header -->
- <div class="box-body">
+ <div class="box-body" *ngFor="let list of ecgRepostAfter">
  <div class="direct-chat-info clearfix">
  <span class="direct-chat-name pull-left">Date & Time</span>
- <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+ <span class="direct-chat-timestamp pull-right">{{list.ecg_date}}</span>
  </div>
- <img class="img-responsive" src="/assets/images/no-image.png" alt="ecg-report">
+ <img class="img-responsive" [src]="list.egc_url" alt="ecg-report">
  </div>
  <!-- /.box-body -->
  </div>
@@ -438,48 +428,54 @@
  <tbody>
  <tr>
  <th>Is it STEMI? :</th>
- <td><span><input type="radio"></span> Yes</td>
- <td><span><input type="radio"></span> No</td>
+ <td>{{doctorPrecription.is_stemi === '1' ? 'Yes' : 'No'}}</td>
+ <!-- <td><span><input type="radio" disabled [(ngModel)]="doctorPrecription.is_stemi" value="1"></span> Yes</td>
+ <td><span><input type="radio" disabled [(ngModel)]="doctorPrecription.is_stemi" value="0"></span> No</td> -->
  </tr>
  <tr>
  <th>ASMI :</th>
- <td><span><input type="radio"></span> Yes</td>
- <td><span><input type="radio"></span> No</td>
+ <td>{{doctorPrecription.asmi === '1' ? 'Yes' : 'No'}}</td>
+ <!-- <td><span><input type="radio" disabled [(ngModel)]="doctorPrecription.asmi" value="1"></span> Yes</td>
+ <td><span><input type="radio" disabled [(ngModel)]="doctorPrecription.asmi" value="0"></span> No</td> -->
  </tr>
  <tr>
- <th>ALMI :</th>
- <td><span><input type="checkbox"></span> Yes</td>
- <td><span><input type="checkbox"></span> No</td>
+ <th>ALMI:</th>
+ <td>{{doctorPrecription.almi === '1' ? 'Yes' : 'No'}}</td>
+ <!-- <td><span><input type="radio" name="yes" disabled [(ngModel)]="doctorPrecription.almi" value="1"></span> Yes</td>
+ <td><span><input type="radio" name="no" disabled [(ngModel)]="doctorPrecription.almi" value="0"></span> No</td> -->
  </tr>
  <tr>
  <th>Anterior Wall :</th>
- <td><span><input type="checkbox"></span> Yes</td>
- <td><span><input type="checkbox"></span> No</td>
+ <td>{{doctorPrecription.anterior_wall === '1' ? 'Yes' : 'No'}}</td>
+ <!-- <td><span><input type="radio" disabled [checked]="doctorPrecription.anterior_wall" value="1"></span> Yes</td>
+ <td><span><input type="radio" disabled [checked]="doctorPrecription.anterior_wall" value="0"></span> No</td> -->
  </tr>
  <tr>
  <th>IWMI :</th>
- <td><span><input type="checkbox"></span> Yes</td>
- <td><span><input type="checkbox"></span> No</td>
+ <td>{{doctorPrecription.iwmi === '1' ? 'Yes' : 'No'}}</td>
+ <!-- <td><span><input type="radio" disabled [(ngModel)]="doctorPrecription.iwmi" value="1"></span> Yes</td>
+ <td><span><input type="radio" disabled [(ngModel)]="doctorPrecription.iwmi" value="0"></span> No</td> -->
  </tr>
  <tr>
  <th>Thrombolysis Indicated :</th>
- <td><span><input type="checkbox"></span> Yes</td>
- <td><span><input type="checkbox"></span> No</td>
+ <td>{{doctorPrecription.thrombolysis_indicated === '1' ? 'Yes' : 'No'}}</td>
+ <!-- <td><span><input type="radio" disabled [(ngModel)]="doctorPrecription.thrombolysis_indicated" value="1"></span> Yes</td>
+ <td><span><input type="radio" disabled [(ngModel)]="doctorPrecription.thrombolysis_indicated" value="1"></span> No</td> -->
  </tr>
- <tr>
- <th>Other Finding in ECG :</th>
- <td><span><input type="checkbox"></span> Yes</td>
- <td><span><input type="checkbox"></span> No</td>
- </tr>
+ <!-- <tr>
+ <th>Other Findings in ECG :</th>
+ <td><span><input type="radio" disabled [(ngModel)]="doctorPrecription." value="1"></span> Yes</td>
+ <td><span><input type="radio" disabled [(ngModel)]="doctorPrecription.iwmi" value="1"></span> No</td>
+ </tr> -->
  <tr>
  <th>Tachycardia :</th>
- <td><span><input type="checkbox"></span> Yes</td>
- <td><span><input type="checkbox"></span> No</td>
+ <td><input type="text" disabled [(ngModel)]="doctorPrecription.tachycardia" name="tach"></td>
+ <!-- <td><span><input type="radio" disabled [(ngModel)]="doctorPrecription.tachycardia" value="1"></span> No</td> -->
  </tr>
  <tr>
  <th>Bradyarrhythmia :</th>
- <td><span><input type="checkbox"></span> Yes</td>
- <td><span><input type="checkbox"></span> No</td>
+ <td><input type="text" disabled [(ngModel)]="doctorPrecription.bradyarrhythmia" name="brady"></td>
+ <!-- <td><span><input type="radio" disabled [(ngModel)]="doctorPrecription.bradyarrhythmia" value="1"></span> No</td> -->
  </tr>
  </tbody>
  </table>
@@ -525,7 +521,7 @@
  <!-- <span class="time pull-right text-muted">
  <i class="fa fa-clock-o "></i>
  12-08-21 | 12:05</span> -->
- <h3 class="timeline-header">Doctor Name: <span class="timeline-header"> Minakshi</span></h3>
+ <h3 class="timeline-header">Doctor Name: <span class="timeline-header"> {{patientDetails.doctor_name}}</span></h3>
  <!-- <div class="timeline-body">
  I hereby consent and authorised phisicianand medical personnel to administer
  and perform medical examination, investigations, medical treatments, pre-hospital procedures,
@@ -534,7 +530,10 @@
  </div> -->
  <div class="timeline-footer" style="padding-top:10px">
  <h3 class="timeline-header">Signature : 
- <span class="text-md"> <input type="text" style="height:60px"></span></h3>
+ <span class="text-md"> 
+     <img [src]="doctorPrecription.doctor_signature_url" alt="sign" style="height:60px">
+     <!-- <input type="text" style="height:60px"> -->
+    </span></h3>
  </div>
  </div>
  </div>

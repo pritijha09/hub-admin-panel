@@ -30,7 +30,7 @@
       <li class="treeview" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
         <a href="#">
           <i class="fa fa-hospital-o"></i>
-          <span>Spoke Doctor Management</span>
+          <span>Hub Doctor Management</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -54,10 +54,10 @@
         </a>
         <ul class="treeview-menu">
           <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <a routerLink=""><i class="fa fa-circle-o"></i>List of all Patients</a>
+            <a routerLink="/admin/all-patient-list"><i class="fa fa-circle-o"></i>List of all Patients</a>
           </li>
           <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <a routerLink=""><i class="fa fa-circle-o"></i>Download Patient Data</a>
+            <a (click)="downloadPatientData()"><i class="fa fa-circle-o"></i>Download Patient Data</a>
           </li>
         </ul>
       </li>

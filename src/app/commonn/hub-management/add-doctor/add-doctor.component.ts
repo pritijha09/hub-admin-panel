@@ -70,6 +70,7 @@ public departmentList = [{id: '1', name: 'Radiology Department (X-ray)'},
     onSubmit(addDoctorform: NgForm) {
        // let 
        let userName= this.addDoctor.mobile;
+       let email = this.addDoctor.email;
        let password = this.addDoctor.password;
         this.SpinnerService.show();
         // var formData: FormData = new FormData();
@@ -93,7 +94,7 @@ public departmentList = [{id: '1', name: 'Radiology Department (X-ray)'},
                 if(res.response === 200){
                     this.SpinnerService.hide();
                     addDoctorform.reset();
-                    Swal.fire('Thank you...', `Username: ${userName}, Password: ${password}`, 'success') 
+                    Swal.fire('Thank you...', `Email: ${email}, Password: ${password}`, 'success') 
                 }
             }, error=> {
                 console.log(error)

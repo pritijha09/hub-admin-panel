@@ -16,10 +16,10 @@
                        
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="hospitalName">Hospital Name</label>
+                                    <label for="hospitalName">Center name</label>
                                     <input type="email" class="form-control" id="" placeholder="e.g. AIIMs Delhi" [(ngModel)]="addClinic.hospital_name" name="hospitalName" #hospitalName="ngModel" required required>
                                     <div class="invalid-feedback" *ngIf="addClinicform.submitted && hospitalName.invalid" class="invalid">
-                                        <p *ngIf="hospitalName.errors?.required">Doctor name is required.</p>
+                                        <p *ngIf="hospitalName.errors?.required">Hospital name is required.</p>
                                       </div> 
                                   </div>
                             </div>
@@ -89,25 +89,25 @@
                     </div>
                     <div class="row">
                        
-                            <div class="col-md-3">
+                            <!-- <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Department Name</label>
-                                    <select class="form-control" name="department_name" #department_name="ngModel" [(ngModel)]="addClinic.department_id" (change)="getSelectedDepartment($event.target.value)" required>
+                                    <select class="form-control" name="department_name" #department_name="ngModel" [(ngModel)]="addClinic.department_id" (change)="getSelectedDepartment($event.target.value)">
                                         
                                         <option *ngFor="let list of departmentList" [value]="list.id">{{list.name}}</option>        
                                     </select>
                                   </div>
-                            </div>
+                            </div> -->
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="hodName">H.O.D Name</label>
+                                    <label for="hodName">Name of Spoke Head</label>
                                     <input type="text" class="form-control" id="" placeholder="name of head of department" name="hodName" [(ngModel)]="addClinic.hod_name" #hodName="ngModel">
                                 </div>
                             </div>
                         
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="hodMobile">H.O.D Contact No.</label>
+                                <label for="hodMobile">Contact of Spoke Head</label>
                                 <input type="text" class="form-control" id="" minlength="10" maxlength="10" placeholder="contact of head of department" name="hodContact" [(ngModel)]="addClinic.hod_contact" #hodContact="ngModel" required>
                                 <div *ngIf="addClinicform.submitted && hodContact.invalid" class="invalid">
                                     <p *ngIf="hodContact.errors?.required">Password is required.</p>

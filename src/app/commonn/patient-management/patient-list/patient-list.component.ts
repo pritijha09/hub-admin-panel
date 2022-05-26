@@ -13,7 +13,11 @@ export class PatientListComponent implements OnInit {
     public searchText : string;
   constructor(private activatedRoute: ActivatedRoute, private coreHttpService: CoreHttpService, private router: Router,  private spinnerService: NgxSpinnerService,) { 
     this.activatedRoute.params.subscribe(params => {
-        this.getPatientList(params.id);
+        if(params.id){
+            this.getPatientList(params.id);
+        } else{
+            this.getAllPatientList();
+        }
       });
   }
 
@@ -21,10 +25,32 @@ export class PatientListComponent implements OnInit {
    
   }
 
+   /** Method to get patient list */
+   getPatientList(id){
+       let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    let body = {
+      "id": Number(currentUser.id),
+      "clinic_id": Number(id),
+      "start_date":"2022-01-01",
+      "end_date":"2022-05-30"
+    }
+  this.spinnerService.show();
+  this.coreHttpService.post(`hub/get-patient-list-by-hub-and-clinic`, body).subscribe(res=>{
+      this.spinnerService.hide();
+      if(res.response===200){
+        this.patientList = res.result;
+      }
+  },error=>{
+      console.log(error)
+      this.spinnerService.hide();
+  })
+}
+
   /** Method to get patient list */
-  getPatientList(id){
+  getAllPatientList(){
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
       let body = {
-        "id": Number(id),
+        "id": Number(currentUser.id),
         "start_date":"2022-01-01",
         "end_date":"2022-05-30"
       }

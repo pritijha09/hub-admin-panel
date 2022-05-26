@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CoreHttpService } from 'src/app/_services/coreHttpServices/core-http.service';
-import { PatientDetails, PatientMedicalHostory, initialMedicalHistory, medicinePrecribed, EcgReportModel } from 'src/app/_model/patient';
+import { PatientDetails, PatientMedicalHostory, initialMedicalHistory, medicinePrecribed, EcgReportModel, PatientAttendeeConsent, MedicationDetails, DoctorPrecription } from 'src/app/_model/patient';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-patient-details',
@@ -10,13 +11,21 @@ import { PatientDetails, PatientMedicalHostory, initialMedicalHistory, medicineP
   styleUrls: ['./patient-details.component.css']
 })
 export class PatientDetailsComponent implements OnInit {
+    attendeeSignature: any;
+public patient_attendee_consent: PatientAttendeeConsent = new PatientAttendeeConsent();
 public patientMedicalHostory: PatientMedicalHostory = new PatientMedicalHostory();
 public patientDetails: PatientDetails = new PatientDetails();
 public initialMedicalHistory: initialMedicalHistory = new initialMedicalHistory();
 public medicinePrecribed: medicinePrecribed[] = [];
-public ecgReport: EcgReportModel[] = [];
+public ecgReportbefore: EcgReportModel = new EcgReportModel();
+public ecgRepostAfter: EcgReportModel[] = [];
+public doctorPrecription: DoctorPrecription = new DoctorPrecription();
     diagnosisAndOutcome: any;
+    medicationDtails: MedicationDetails[] = [];
+    medicationForTNK: MedicationDetails[] = [];
+    ALMI: boolean;
   constructor(private activatedRoute: ActivatedRoute,
+    private sanitizer: DomSanitizer,
     private coreHttpService: CoreHttpService,
     private spinnerService: NgxSpinnerService) {
     this.activatedRoute.params.subscribe(params => {
@@ -40,8 +49,16 @@ public ecgReport: EcgReportModel[] = [];
           this.initialMedicalHistory = res.result[0].patient_initial_clinical_assessment[0];
           this.diagnosisAndOutcome = res.result[0].diagnosis_and_outcome[0];
           this.medicinePrecribed = res.result[0].medicine_prescribed;
-          this.ecgReport = res.result[0].patient_ecg_report;
-          console.log(res.result[0].medicine_prescribed)
+          this.ecgReportbefore = res.result[0].patient_ecg_report[0];
+          let dataecgafter = res.result[0].patient_ecg_report;
+          dataecgafter.splice(0,1);
+          this.ecgRepostAfter = dataecgafter;
+          this.patient_attendee_consent = res.result[0].patient_attendee_consent[0];
+          this.attendeeSignature = this.sanitizer.bypassSecurityTrustUrl(this.patient_attendee_consent.signature_url)
+          this.medicationDtails = res.result[0].patient_medication_detail;
+          this.medicationForTNK = res.result[0].patient_diagnosis_medication_detail;
+          this.doctorPrecription = res.result[0].doctor_prescription[0];
+          this.ALMI = this.doctorPrecription.almi === '1'? true: false;
         }
     },error=>{
         console.log(error)
