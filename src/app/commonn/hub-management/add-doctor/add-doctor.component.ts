@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AddDoctor } from 'src/app/_model/common.model';
+import { AddDoctor, ClinicListModel } from 'src/app/_model/common.model';
 import { CoreHttpService } from 'src/app/_services/coreHttpServices/core-http.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { NgForm } from '@angular/forms';
@@ -13,7 +13,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class AddDoctorComponent implements OnInit {
     private apiBaseURL: string;
-    
+    public clinicList: ClinicListModel[] = []; 
 public stateList: any[] = [];
 public districtList: any[] = [];
 
@@ -24,7 +24,16 @@ public departmentList = [{id: '1', name: 'Radiology Department (X-ray)'},
 {id: '4', name: 'Outpatient department (OPD)'}]
    
   constructor(private httpClient: HttpClient, private coreHttpService: CoreHttpService,  private SpinnerService: NgxSpinnerService,) {
-    
+    this.SpinnerService.show();
+    this.coreHttpService.get(`hub/clinic-list`).subscribe(res=>{
+        this.SpinnerService.hide();
+        if(res.response===200){
+          this.clinicList = res.result;
+        }
+    },error=>{
+        console.log(error)
+        this.SpinnerService.hide();
+    })
    }
 
   ngOnInit(): void {
@@ -69,6 +78,8 @@ public departmentList = [{id: '1', name: 'Radiology Department (X-ray)'},
     /** Method to save new doctor */
     onSubmit(addDoctorform: NgForm) {
        // let 
+       let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+       this.addDoctor.hospital_name = currentUser.name ? currentUser.name : 'Igmc';
        let userName= this.addDoctor.mobile;
        let email = this.addDoctor.email;
        let password = this.addDoctor.password;
@@ -97,8 +108,8 @@ public departmentList = [{id: '1', name: 'Radiology Department (X-ray)'},
                     Swal.fire('Thank you...', `Email: ${email}, Password: ${password}`, 'success') 
                 }
             }, error=> {
-                console.log(error)
                 this.SpinnerService.hide();
+                console.log(error)
             }
          );
         // this.coreHttpService.postWithFile('hub/add-doctor', formData).subscribe()
